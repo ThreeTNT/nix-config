@@ -14,6 +14,7 @@ let
     )
   );
 in
+builtins.trace flake-inputs.caelestia-shell
 {
   sops.secrets.weak-password.neededForUsers = true;
   users.users.lena = {
@@ -35,7 +36,24 @@ in
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
 
-  home-manager.users.${username}.home.stateVersion = config.system.stateVersion;
+  home-manager.users.${username} = {
+    imports = [ 
+      flake-inputs.catppuccin.homeModules.catppuccin 
+      flake-inputs.caelestia-shell.homeManagerModules.default
+    ];
+
+    catppuccin.accent = "mauve";
+    
+    xdg.userDirs = {
+      createDirectories = true;
+      desktop = true;
+      documents = true;
+      download = true;
+      pictures = true;
+    };
+
+    home.stateVersion = config.system.stateVersion;
+  };
 
   imports = all-modules;
 }

@@ -1,4 +1,4 @@
-{ gui-system, username, ... }:
+{ pkgs, gui-system, username, ... }:
 let
   profiles.default = {
     id = 0;
@@ -10,7 +10,7 @@ let
       "browser.ml.linkPreview.enabled" = false;
       "browser.tabs.groups.smart.enabled" = false;
       "browser.tabs.groups.smart.userEnabled" = false;
-      "browser.translations.enable" = false;
+      "browser.translations.enable" = true;
       "extensions.ml.enabled" = false;
       "pdfjs.enableAltText" = false;
     };
@@ -71,9 +71,13 @@ in
 if gui-system then
   {
     home-manager.users.${username}.programs.firefox = {
+      enable = true;
+      package = pkgs.firefox-bin;
       inherit profiles;
       inherit policies;
     };
+
+    catppuccin.firefox.enable = true;
   }
 else
   { }

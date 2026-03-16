@@ -1,9 +1,8 @@
 { username, ... }:
 {
   home-manager.users.${username} = {
-    programs.fish = {
+    programs.fastfetch = {
       enable = true;
-      interactiveShellInit = builtins.readFile ./prompt_init.fish;
     };
   };
 }

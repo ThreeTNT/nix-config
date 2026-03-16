@@ -1,4 +1,4 @@
-{ ... }:
+{ flake-inputs, ... }:
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -11,5 +11,7 @@
     ../core/core.nix
     ../secrets/secrets.nix
     ../users/users.nix
+
+    flake-inputs.catppuccin.nixosModules.catppuccin
   ];
 }

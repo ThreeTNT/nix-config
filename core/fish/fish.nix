@@ -10,7 +10,7 @@
     };
 
     promptInit = builtins.readFile ./prompt_init.fish;
-
-    interactiveShellInit = builtins.readFile ./functions.fish;
+    shellInit = builtins.readFile ./shell_init.fish;
+    interactiveShellInit = builtins.readFile ./interactive_init.fish;
   };
 }
