@@ -5,7 +5,12 @@
 
     specialArgs = {
       flake-inputs = inputs;
-      gui-system = true;
+
+      host-config = {
+        gui = true;
+        battery = false;
+        gpu = "cuda";
+      };
     };
     modules = [
       ../common.nix

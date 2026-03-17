@@ -1,16 +1,9 @@
-{ username, ... }:
+{ username, host-config, ... }:
 {
   home-manager.users.${username}.programs.caelestia = {
-    enable = true;
-    systemd = {
-      enable = false;
-      target = "graphical-session.target";
-      environment = [];
-    };
+    enable = host-config.gpu != "none";
     settings = {
-      bar.status = {
-        showBattery = false;
-      };
+      bar.status.showBattery = host-config.battery;
       paths.wallpaperDir = "~/Pictures";
     };
     cli = {

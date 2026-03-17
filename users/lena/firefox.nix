@@ -1,4 +1,4 @@
-{ pkgs, gui-system, username, ... }:
+{ pkgs, host-config, username, ... }:
 let
   profiles.default = {
     id = 0;
@@ -69,7 +69,7 @@ let
     };
   };
 in
-if gui-system then
+if host-config.gui then
   {
     home-manager.users.${username} = {
       programs.firefox = {

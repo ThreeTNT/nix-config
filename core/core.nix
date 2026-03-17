@@ -8,6 +8,19 @@
   programs.nix-ld.enable = true;
 
   environment.systemPackages = with pkgs; [
+    zip
+    unzip
+    xz
+
+    ripgrep
+    jq
+    yq-go
+
+    file
+
+    btop
+    fastfetch
+
     eza
   ];
 
