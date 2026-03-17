@@ -4,7 +4,6 @@
     zip
     unzip
     xz
-    btop
 
     ripgrep
     jq
@@ -19,5 +18,11 @@
 
     clang-tools
     cmake
+
+    ty
+    ruff
+    nixd
+    nixfmt
+    nixfmt-tree
   ];
 }

@@ -14,6 +14,7 @@ let
       "extensions.ml.enabled" = false;
       "pdfjs.enableAltText" = false;
     };
+    extensions.force = true;
   };
   policies = {
     DontCheckDefaultBrowser = true;
@@ -70,14 +71,20 @@ let
 in
 if gui-system then
   {
-    home-manager.users.${username}.programs.firefox = {
-      enable = true;
-      package = pkgs.firefox-bin;
-      inherit profiles;
-      inherit policies;
-    };
+    home-manager.users.${username} = {
+      programs.firefox = {
+        enable = true;
+        package = pkgs.firefox-bin;
+        inherit profiles;
+        inherit policies;
+      };
 
-    catppuccin.firefox.enable = true;
+      catppuccin.firefox.enable = true;
+      catppuccin.firefox.profiles.default = {
+        enable = true;
+        force = true;
+      };
+    };
   }
 else
   { }

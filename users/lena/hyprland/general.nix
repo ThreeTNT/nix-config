@@ -6,11 +6,11 @@
     ];
 
     general = {
-      gaps_in = 4;
-      gaps_out = 5;
+      gaps_in = 5;
+      gaps_out = 10;
       gaps_workspaces = 50;
 
-      border_size = 1;
+      border_size = 3;
       resize_on_border = true;
 
       no_focus_fallback = true;

@@ -14,7 +14,6 @@ let
     )
   );
 in
-builtins.trace flake-inputs.caelestia-shell
 {
   sops.secrets.weak-password.neededForUsers = true;
   users.users.lena = {
@@ -43,7 +42,7 @@ builtins.trace flake-inputs.caelestia-shell
     ];
 
     catppuccin.accent = "mauve";
-    
+
     xdg.userDirs = {
       createDirectories = true;
       desktop = true;

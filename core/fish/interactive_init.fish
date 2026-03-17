@@ -1,8 +1,12 @@
 function rebuild \
     -a host \
     -d "Rebuilds the current NixOS configuration for the specified target host."
-    
-    sudo nixos-rebuild switch --flake /etc/nixos#$host
+
+    if [ -n $host ]
+        sudo nixos-rebuild switch --flake /etc/nixos#$host
+    else
+        sudo nixos-rebuild switch --flake /etc/nixos
+    end
 end
 
 function activate \
