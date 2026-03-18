@@ -1,4 +1,4 @@
-{ pkgs, host-config, username, ... }:
+{ pkgs, host-config, username, lib, ... }:
 let
   profiles.default = {
     id = 0;
@@ -23,7 +23,6 @@ let
     DisablePocket = true;
     DisableFirefoxScreenshots = true;
 
-    DisplayBookmarksToolbar = "never";
     DisplayMenuBar = "never";
 
     OverrideFirstRunPage = "";
@@ -52,39 +51,30 @@ let
       Fingerprinting = true;
     };
 
-    FirefoxHome = # Make new tab only show search
-      {
-        Search = true;
-        TopSites = false;
-        SponsoredTopSites = false;
-        Highlights = false;
-        Pocket = false;
-        SponsoredPocket = false;
-        Snippets = false;
-      };
+    FirefoxHome = {
+      Search = true;
+      TopSites = false;
+      SponsoredTopSites = false;
+      Highlights = false;
+      Pocket = false;
+      SponsoredPocket = false;
+      Snippets = false;
+    };
 
     Handlers.schemes.vscode = {
-      action = "useSystemDefault"; # Open VSCode app
+      action = "useSystemDefault";
       ask = false;
     };
   };
 in
-if host-config.gui then
-  {
-    home-manager.users.${username} = {
-      programs.firefox = {
-        enable = true;
-        package = pkgs.firefox-bin;
-        inherit profiles;
-        inherit policies;
-      };
-
-      catppuccin.firefox.enable = true;
-      catppuccin.firefox.profiles.default = {
-        enable = true;
-        force = true;
-      };
+lib.mkIf host-config.gui
+{
+  home-manager.users.${username} = {
+    programs.firefox = {
+      enable = true;
+      package = pkgs.firefox-bin;
+      inherit profiles;
+      inherit policies;
     };
-  }
-else
-  { }
+  };
+}

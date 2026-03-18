@@ -41,6 +41,7 @@ in
       flake-inputs.caelestia-shell.homeManagerModules.default
     ];
 
+    catppuccin.enable = false;
     catppuccin.accent = "mauve";
 
     xdg.userDirs = {

@@ -8,7 +8,6 @@
     general = {
       gaps_in = 5;
       gaps_out = 10;
-      gaps_workspaces = 50;
 
       border_size = 3;
       resize_on_border = true;

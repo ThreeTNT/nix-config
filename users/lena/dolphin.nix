@@ -1,10 +1,10 @@
-{ username, ... }:
+{ username, pkgs, lib, host-config, ... }:
+lib.mkIf host-config.gui
 {
   home-manager.users.${username} = {
-    programs.dolphin = {
-      enable = true;
-    };
-
-    catppuccin.btop.enable = true;
+    home.packages = with pkgs; [
+      kdePackages.qtsvg
+      kdePackages.dolphin
+    ];
   };
 }
