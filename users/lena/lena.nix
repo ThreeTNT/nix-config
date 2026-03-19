@@ -10,7 +10,8 @@ let
   importfn = x: (import x) (inps // { inherit username; });
   all-modules = map importfn (
     lib.fileset.toList (
-      lib.fileset.difference (flake-inputs.globset.lib.glob ./. "**/*.nix") ./${username}.nix
+      lib.fileset.difference (flake-inputs.globset.lib.glob ./. "**/*.nix") 
+        (lib.fileset.union ./${username}.nix (flake-inputs.globset.lib.glob ./packages "**/*.nix"))
     )
   );
 in

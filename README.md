@@ -4,7 +4,7 @@
 - `users/$username` contains home-manager config files for `$username`
 ## Todos
 - caelestia customization
-- figure out why caelestia is using catpuccin colors
+    - figure out why caelestia is using catpuccin colors
 - kitty themeing
 - dolphin theming and configing
-- GTK3 & 4 theming (apparently hell)
+- Limine instead of GRUB (needs in person)

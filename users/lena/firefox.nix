@@ -73,8 +73,8 @@ lib.mkIf host-config.gui
     programs.firefox = {
       enable = true;
       package = pkgs.firefox-bin;
-      inherit profiles;
-      inherit policies;
+      profiles = profiles;
+      policies = policies;
     };
   };
 }
