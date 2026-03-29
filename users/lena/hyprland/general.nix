@@ -25,7 +25,7 @@
     };
 
     exec-once = [
-      "caelestia shell"
+      "caelestia-shell"
     ];
 
     dwindle = {
@@ -36,7 +36,7 @@
 
     decoration = {
       rounding_power = 2;
-      rounding = 18;
+      rounding = 12;
 
       blur = {
         enabled = true;

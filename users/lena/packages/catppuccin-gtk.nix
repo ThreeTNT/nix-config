@@ -77,4 +77,9 @@ pkgs.stdenv.mkDerivation {
     cp -r ${theme-name} $out/share/themes/
     runHook postInstall
   '';
+
+  meta = {
+    description = "Continuation of Catppuccin GTK theme, ported to Nix";
+    homepage = "https://github.com/VanillaDaFur/catppuccin-gtk";
+  };
 }
