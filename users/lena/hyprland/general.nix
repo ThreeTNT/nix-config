@@ -9,7 +9,7 @@
       gaps_in = 5;
       gaps_out = 10;
 
-      border_size = 3;
+      border_size = 4;
       resize_on_border = true;
 
       no_focus_fallback = true;

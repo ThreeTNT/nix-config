@@ -8,6 +8,8 @@
   programs.nix-ld.enable = true;
 
   environment.systemPackages = with pkgs; [
+    helix
+
     zip
     unzip
     xz
@@ -17,11 +19,16 @@
     yq-go
 
     file
+    eza
 
     btop
     fastfetch
 
-    eza
+    nmap
+    pciutils
+    usbutils
+    lm_sensors
+    ethtool
   ];
 
   imports = lib.fileset.toList (

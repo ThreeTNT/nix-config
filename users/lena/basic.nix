@@ -1,14 +1,12 @@
-{ pkgs, username, ... }:
+{
+  pkgs,
+  username,
+  lib,
+  host-config,
+  ...
+}:
 {
   home-manager.users.${username}.home.packages = with pkgs; [
-    nmap
-
-    pciutils
-    usbutils
-    lm_sensors
-    pwvucontrol
-    ethtool
-
     clang-tools
     cmake
 
@@ -17,5 +15,7 @@
     nixd
     nixfmt
     nixfmt-tree
+
+    (lib.mkIf (host-config.gpu != "none") playerctl)
   ];
 }

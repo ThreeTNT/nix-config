@@ -1,6 +1,6 @@
 { pkgs, username, ... }:
 let
-  theme = pkgs.callPackage ../packages/catppuccin-gtk.nix { 
+  theme = pkgs.callPackage ../packages/catppuccin-gtk.nix {
     flavor = "macchiato";
     accent = "mauve";
   };
@@ -10,8 +10,10 @@ in
     gtk = {
       enable = true;
       colorScheme = "dark";
-      theme.name = "catppuccin-macchiato-mauve-standard";
-      theme.package = theme;
+      gtk4.theme = {
+        name = "catppuccin-macchiato-mauve-standard";
+        package = theme;
+      };
     };
   };
 }
