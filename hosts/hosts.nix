@@ -1,6 +1,6 @@
 { ... }:
 {
   imports = [
-    ./pc/flake.nix
+    ./celosia/flake.nix
   ];
 }

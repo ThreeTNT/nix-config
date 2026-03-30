@@ -10,7 +10,7 @@
       };
       "pc" = {
         user = "lena";
-        hostname = "lenas-pc";
+        hostname = "celosia";
       };
       "minipc1" = {
         user = "lena";

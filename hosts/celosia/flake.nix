@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake.nixosConfigurations.lenas-pc = inputs.nixpkgs.lib.nixosSystem {
+  flake.nixosConfigurations.celosia = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
 
     specialArgs = {

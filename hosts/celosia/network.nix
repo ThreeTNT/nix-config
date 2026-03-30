@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  networking.hostName = "lenas-pc";
+  networking.hostName = "celosia";
 
   sops.secrets.home-wifi = {
     sopsFile = ./secrets/home-wifi.yaml;
