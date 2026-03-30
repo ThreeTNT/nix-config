@@ -29,7 +29,7 @@ in
       echo "{
         \"email\": \"$(cat ${config.sops.secrets.email.path})\",
         \"base_url\": \"$(cat ${config.sops.secrets.bw-url.path})\",
-        \"pinentry\": \"${pinentry}\"
+        \"pinentry\": \"${pinentry}/bin/pinentry\"
       }" > ${cfg_dir}/rbw/config.json
       chmod 700 ${cfg_dir}/rbw
       chmod 600 ${cfg_dir}/rbw/config.json
