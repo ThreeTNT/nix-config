@@ -9,7 +9,6 @@
 
   imports = [
     ../core/core.nix
-    ../secrets/secrets.nix
     ../users/users.nix
 
     flake-inputs.catppuccin.nixosModules.catppuccin
