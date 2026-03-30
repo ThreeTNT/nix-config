@@ -1,4 +1,10 @@
-{ pkgs, host-config, username, lib, ... }:
+{
+  pkgs,
+  host-config,
+  username,
+  lib,
+  ...
+}:
 let
   profiles.default = {
     id = 0;
@@ -22,8 +28,6 @@ let
     DisableFirefoxStudies = true;
     DisablePocket = true;
     DisableFirefoxScreenshots = true;
-
-    DisplayMenuBar = "never";
 
     OverrideFirstRunPage = "";
     PictureInPicture.Enabled = false;
@@ -67,8 +71,7 @@ let
     };
   };
 in
-lib.mkIf host-config.gui
-{
+lib.mkIf host-config.gui {
   home-manager.users.${username} = {
     programs.firefox = {
       enable = true;

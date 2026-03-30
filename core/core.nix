@@ -9,6 +9,9 @@
 
   environment.systemPackages = with pkgs; [
     helix
+    sops
+    age
+    ssh-to-age
 
     zip
     unzip

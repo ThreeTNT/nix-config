@@ -26,6 +26,7 @@
 
     exec-once = [
       "caelestia-shell"
+      "bitwarden"
     ];
 
     dwindle = {
