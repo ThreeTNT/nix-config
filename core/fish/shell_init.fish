@@ -1,5 +1,5 @@
 if test $SSH_CONNECTION
     export EDITOR="hx";
 else
-    export EDITOR="code";
+    export EDITOR="vscodium";
 end

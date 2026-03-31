@@ -2,9 +2,6 @@
 {
   networking.hostName = "celosia";
 
-  sops.secrets.home-wifi = {
-    sopsFile = ./secrets/home-wifi.yaml;
-  };
   networking.networkmanager = {
     enable = true;
     ensureProfiles.environmentFiles = [ config.sops.secrets.home-wifi.path ];
