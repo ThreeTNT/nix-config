@@ -1,4 +1,9 @@
-{ pkgs, flavor, accent, ... }:
+{
+  pkgs,
+  flavor,
+  accent,
+  ...
+}:
 let
   hashs = {
     "catppuccin-latte-rosewater-standard" = "sha256-g+TzuM+/Sbx0d1L7xQdWjmNJFX8fbx0crsxX1ukkCow=";
@@ -70,7 +75,7 @@ pkgs.stdenv.mkDerivation {
     sha256 = hashs.${theme-name};
     stripRoot = false;
   };
-  
+
   installPhase = ''
     runHook preInstall
     mkdir -p $out/share/themes/

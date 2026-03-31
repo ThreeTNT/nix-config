@@ -3,6 +3,7 @@
   home-manager.users.${username} = {
     home.packages = with pkgs; [
       nerd-fonts.hack
+      nerd-fonts.iosevka
 
       noto-fonts
       noto-fonts-cjk-sans

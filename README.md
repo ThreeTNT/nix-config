@@ -5,6 +5,4 @@
 ## Todos
 - caelestia customization
     - figure out why caelestia is using catpuccin colors
-- kitty themeing
-- dolphin theming and configing
 - Limine instead of GRUB (needs in person)

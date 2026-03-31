@@ -1,4 +1,9 @@
-{ username, pkgs, host-config, ... }:
+{
+  username,
+  pkgs,
+  host-config,
+  ...
+}:
 {
   environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "qt6ct";

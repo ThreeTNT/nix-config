@@ -8,7 +8,7 @@
       font.size = 13.0;
       settings.window_padding_width = 10;
     };
-    
+
     catppuccin.kitty.enable = true;
   };
 }

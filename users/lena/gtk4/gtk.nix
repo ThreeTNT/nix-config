@@ -1,4 +1,9 @@
-{ pkgs, username, host-config, ... }:
+{
+  pkgs,
+  username,
+  host-config,
+  ...
+}:
 let
   theme = pkgs.callPackage ../packages/catppuccin-gtk.nix {
     flavor = "macchiato";

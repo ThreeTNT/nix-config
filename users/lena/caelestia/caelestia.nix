@@ -16,7 +16,7 @@
       paths = {
         wallpaperDir = "~/Pictures";
       };
-      
+
       general = {
         idle = {
           lockBeforeSleep = true;
@@ -41,7 +41,7 @@
           explorer = [ "dolphin" ];
         };
       };
-      
+
     };
 
     cli.enable = false;

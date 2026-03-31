@@ -10,8 +10,9 @@ let
   importfn = x: (import x) (inps // { inherit username; });
   all-modules = map importfn (
     lib.fileset.toList (
-      lib.fileset.difference (flake-inputs.globset.lib.glob ./. "**/*.nix") 
-        (lib.fileset.union ./${username}.nix (flake-inputs.globset.lib.glob ./packages "**/*.nix"))
+      lib.fileset.difference (flake-inputs.globset.lib.glob ./. "**/*.nix") (
+        lib.fileset.union ./${username}.nix (flake-inputs.globset.lib.glob ./packages "**/*.nix")
+      )
     )
   );
 in
@@ -37,12 +38,13 @@ in
   home-manager.useUserPackages = true;
 
   home-manager.users.${username} = {
-    imports = [ 
-      flake-inputs.catppuccin.homeModules.catppuccin 
+    imports = [
+      flake-inputs.catppuccin.homeModules.catppuccin
       flake-inputs.caelestia-shell.homeManagerModules.default
     ];
 
     catppuccin.enable = false;
+    catppuccin.flavor = "mocha";
     catppuccin.accent = "mauve";
 
     xdg.userDirs = {

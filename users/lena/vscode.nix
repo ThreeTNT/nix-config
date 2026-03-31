@@ -35,51 +35,6 @@ let
         lldb
       ];
 
-    # {
-    #     "github.copilot.nextEditSuggestions.enabled": true,
-    #     "python.defaultInterpreterPath": "/Users/lena/.venv/bin/python",
-    #     "workbench.tree.indent": 16,
-    #     "magicRacket.general.racketPath": "/Applications/Racket v8.18/bin/racket",
-    #     "magicRacket.general.racoPath": "/Applications/Racket v8.18/bin/raco",
-    #     "magicRacket.languageServer.command": "/Applications/Racket v8.18/bin/racket",
-    #     "terminal.integrated.inheritEnv": false,
-    #     "github.copilot.enable": {
-    #         "*": false,
-    #         "plaintext": false,
-    #         "markdown": false,
-    #         "scminput": false,
-    #         "racket": false,
-    #         "cpp": false,
-    #         "jsonl": false,
-    #         "rust": false,
-    #         "xml": false,
-    #         "python": false,
-    #         "github-actions-workflow": true,
-    #         "css": true
-    #     },
-    #     "python.createEnvironment.trigger": "off",
-    #     "git.confirmSync": false,
-    #     "git.enableSmartCommit": true,
-    #     "makefile.configureOnOpen": false,
-    #     "editor.indentSize": "tabSize",
-    #     "python.languageServer": "None",
-    #     "explorer.sortOrder": "type",
-    #     "ruff.nativeServer": "on",
-    #     "chat.tools.terminal.autoApprove": {
-    #         "pytest": true
-    #     },
-    #     "github.gitProtocol": "ssh",
-    #     "explorer.confirmPasteNative": false,
-    #     "terminal.integrated.enableMultiLinePasteWarning": "never",
-    #     "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
-    #     "C_Cpp.intelliSenseEngine": "disabled",
-    #     "haskell.manageHLS": "GHCup",
-    #     "remote.SSH.useLocalServer": false,
-    #     "remote.SSH.remotePlatform": {
-    #         "pc": "linux"
-    #     },
-    # }
-
     userSettings = {
       files.exclude = {
         "**/__pycache__" = true;
@@ -89,12 +44,16 @@ let
         "**/*.dSYM" = true;
         "**/*.egg-info" = true;
       };
+      files.autoSave = false;
       editor.fontFamily = "Hack Nerd Font Mono";
+      explorer.confirmPasteNative = false;
       explorer.confirmDelete = false;
       explorer.confirmDragAndDrop = false;
       workbench.tree.indent = 16;
       terminal.integrated.enableImages = true;
+      terminal.integrated.enableMultiLinePasteWarning = "never";
       github.gitProtocol = "ssh";
+      git.confirmSync = false;
 
       nix.serverPath = "nixd";
       nix.enableLanguageServer = true;

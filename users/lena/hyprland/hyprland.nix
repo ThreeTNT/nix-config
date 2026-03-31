@@ -1,4 +1,10 @@
-{ username, pkgs, flake-inputs, host-config, ... }:
+{
+  username,
+  pkgs,
+  flake-inputs,
+  host-config,
+  ...
+}:
 let
   plugins = flake-inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system};
 in

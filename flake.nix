@@ -40,6 +40,18 @@
           "aarch64-darwin"
         ];
 
+        perSystem =
+          { pkgs, ... }:
+          {
+            devShells.default = pkgs.mkShell {
+              packages = with pkgs; [
+                nixd
+                nixfmt
+                nixfmt-tree
+              ];
+            };
+          };
+
         imports = [
           ./hosts/hosts.nix
         ];

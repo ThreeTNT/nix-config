@@ -1,6 +1,11 @@
-{ username, pkgs, host-config, lib, ... }:
-lib.mkIf host-config.gui
 {
+  username,
+  pkgs,
+  host-config,
+  lib,
+  ...
+}:
+lib.mkIf host-config.gui {
   home-manager.users.${username} = {
     home.pointerCursor = {
       name = "Catppucin-Macchiato-Mauve-Cursors";

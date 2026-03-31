@@ -1,8 +1,17 @@
-{ username, pkgs, ... }:
+{
+  username,
+  pkgs,
+  host-config,
+  config,
+  ...
+}:
+let
+  theme-file = config.home-manager.users.${username}.catppuccin.flavor;
+in
 {
   home-manager.users.${username} = {
     programs.vesktop = {
-      enable = true;
+      enable = host-config.gui;
       package = pkgs.vesktop;
       settings = {
         autoUpdate = false;
@@ -10,26 +19,23 @@
         notifyAboutUpdates = false;
         useQuickCss = true;
         disableMinSize = true;
-        plugins = {
-          MessageLogger = {
+      };
+      vencord = {
+        settings.plugins = {
+          ShikiCodeblocks = {
             enabled = true;
-            ignoreSelf = false;
+            theme = "https://raw.githubusercontent.com/shikijs/textmate-grammars-themes/refs/heads/main/packages/tm-themes/themes/catppuccin-${theme-file}.json";
           };
-          Translate = {
-            enabled = true;
-            recievedInput = "auto";
-            sentInput = "en";
-            service = "google";
-          };
-          UserMessagesPronouns = {
-            enabled = true;
-            showSelf = true;
-          };
-          ShikiCodeblocks.enabled = true;
+          CallTimer.enabled = true;
           FakeNitro.enabled = true;
-          RelationshipNotifier.enabled = true;
-          ExpressionCloner.enabled = true;
+          ImageZoom.enabled = true;
+          MemberCount.enabled = true;
+          MessageLogger.enabled = true;
           YoutubeAdblock.enabled = true;
+          UserMessagesPronouns.enabled = true;
+          ExpressionCloner.enabled = true;
+          ServerInfo.enabled = true;
+          Translate.enabled = true;
         };
       };
     };
