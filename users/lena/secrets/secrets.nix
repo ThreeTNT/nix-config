@@ -1,7 +1,7 @@
 { ... }:
 {
   sops = {
-    age.sshKeyPaths = [ ../../../ed25519_key ];
+    age.sshKeyPaths = [ ./id_ed25519 ];
 
     secrets = {
       weak-password = {
