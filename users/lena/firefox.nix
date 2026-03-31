@@ -71,10 +71,10 @@ let
     };
   };
 in
-lib.mkIf host-config.gui {
+{
   home-manager.users.${username} = {
     programs.firefox = {
-      enable = true;
+      enable = host-config.gui;
       package = pkgs.firefox-bin;
       profiles = profiles;
       policies = policies;

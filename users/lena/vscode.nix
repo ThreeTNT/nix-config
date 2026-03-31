@@ -2,6 +2,7 @@
   username,
   pkgs,
   flake-inputs,
+  host-config,
   ...
 }:
 let
@@ -42,7 +43,7 @@ in
 
   home-manager.users.${username} = {
     programs.vscode = {
-      enable = true;
+      enable = host-config.gui;
       package = pkgs.vscodium;
       profiles.default = default-profile;
     };

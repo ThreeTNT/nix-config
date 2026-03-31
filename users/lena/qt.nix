@@ -1,4 +1,4 @@
-{ username, pkgs, ... }:
+{ username, pkgs, host-config, ... }:
 {
   environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "qt6ct";
@@ -11,12 +11,12 @@
     ];
 
     qt = {
-      enable = true;
+      enable = host-config.gui;
       platformTheme.name = "qt6ct";
     };
 
     catppuccin.qt5ct = {
-      enable = true;
+      enable = host-config.gui;
       assertPlatformTheme = false;
     };
   };

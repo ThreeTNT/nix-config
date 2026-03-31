@@ -16,6 +16,6 @@
     nixfmt
     nixfmt-tree
 
-    (lib.mkIf (host-config.gpu != "none") playerctl)
+    (lib.mkIf host-config.gui playerctl)
   ];
 }

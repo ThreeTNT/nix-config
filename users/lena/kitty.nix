@@ -1,8 +1,8 @@
-{ username, ... }:
+{ username, host-config, ... }:
 {
   home-manager.users.${username} = {
     programs.kitty = {
-      enable = true;
+      enable = host-config.gui;
       shellIntegration.enableFishIntegration = true;
       font.name = "Hack Nerd Font";
       font.size = 13.0;
