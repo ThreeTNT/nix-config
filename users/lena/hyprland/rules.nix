@@ -30,6 +30,10 @@
         "match:class ^(com\\.saivert\\.pwvucontrol)$, size (monitor_w*.30) (monitor_h*.40)"
         "match:class ^(com\\.saivert\\.pwvucontrol)$, center on"
 
+        "match:class ^(Bitwarden)$, float on"
+        "match:class ^(Bitwarden)$, size (monitor_w*.40) (monitor_h*.40)"
+        "match:class ^(Bitwarden)$, center on"
+
         # stupid dolphin copy
         "match:title ^(Copying — Dolphin)$, move 40 80"
 
