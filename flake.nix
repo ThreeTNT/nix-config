@@ -37,7 +37,7 @@
       {
         systems = [
           "x86_64-linux"
-          "arm64-darwin"
+          "aarch64-darwin"
         ];
 
         imports = [
