@@ -1,5 +1,1 @@
-if test $SSH_CONNECTION
-    export EDITOR="hx";
-else
-    export EDITOR="codium";
-end
+set -x EDITOR 'hx'
