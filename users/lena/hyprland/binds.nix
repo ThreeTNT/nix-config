@@ -6,8 +6,13 @@
     bind = [
       "$mod, T, exec, kitty"
       "$mod, E, exec, firefox"
+      "$mod, B, exec, vesktop"
+      "$mod, C, exec, codium"
+
+      "$mod, TAB, exec, caelestia shell drawers toggle launcher"
 
       "$mod, Q, killactive"
+      "$mod, F, togglefloating"
 
       "$mod CTRL, left, workspace, r-1"
       "$mod CTRL, right, workspace, r+1"

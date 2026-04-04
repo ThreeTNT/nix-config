@@ -13,5 +13,7 @@
 
     (lib.mkIf host-config.gui playerctl)
     (lib.mkIf host-config.gui pwvucontrol)
+
+    ddcutil
   ];
 }

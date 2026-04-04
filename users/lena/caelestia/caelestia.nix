@@ -41,9 +41,8 @@
           explorer = [ "dolphin" ];
         };
       };
-
     };
 
-    cli.enable = false;
+    cli.enable = (host-config.gpu != "none") && host-config.gui;
   };
 }

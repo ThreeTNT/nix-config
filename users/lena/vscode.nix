@@ -3,6 +3,7 @@
   pkgs,
   flake-inputs,
   host-config,
+  lib,
   ...
 }:
 let
@@ -49,6 +50,7 @@ let
       explorer.confirmPasteNative = false;
       explorer.confirmDelete = false;
       explorer.confirmDragAndDrop = false;
+      explorer.sortOrder = "type";
       workbench.tree.indent = 16;
       terminal.integrated.enableImages = true;
       terminal.integrated.enableMultiLinePasteWarning = "never";
@@ -57,7 +59,20 @@ let
 
       nix.serverPath = "nixd";
       nix.enableLanguageServer = true;
+
     };
+  };
+
+  homework-profile = lib.recursiveUpdate default-profile {
+    extensions =
+      (with pkgs.nix-vscode-extensions.vscode-marketplace; [
+        llvm-vs-code-extensions.vscode-clangd
+        evzen-wybitul.magic-racket
+        jnoortheen.nix-ide
+      ])
+      ++ [ lldb ];
+
+    userSettings.editor.indentSize = 2;
   };
 in
 {
@@ -70,8 +85,10 @@ in
       enable = host-config.gui;
       package = pkgs.vscodium;
       profiles.default = default-profile;
+      profiles.Homework = homework-profile;
     };
 
     catppuccin.vscode.profiles.default.enable = true;
+    catppuccin.vscode.profiles.Homework.enable = true;
   };
 }

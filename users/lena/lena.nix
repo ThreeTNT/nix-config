@@ -24,6 +24,7 @@ in
     extraGroups = [
       "input"
       "video"
+      "i2c"
     ];
     shell = pkgs.fish;
     hashedPasswordFile = config.sops.secrets.weak-password.path;

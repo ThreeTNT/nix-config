@@ -29,9 +29,12 @@
         "match:class ^(com\\.saivert\\.pwvucontrol)$, float on"
         "match:class ^(com\\.saivert\\.pwvucontrol)$, size (monitor_w*.30) (monitor_h*.40)"
         "match:class ^(com\\.saivert\\.pwvucontrol)$, center on"
+        "match:title ^(Friends List)$, float on"
+        "match:title ^(Steam Settings)$, float on"
+        "match:title ^(Sign in to Steam)$, float on"
 
         "match:class ^(Bitwarden)$, float on"
-        "match:class ^(Bitwarden)$, size (monitor_w*.40) (monitor_h*.40)"
+        "match:class ^(Bitwarden)$, size (monitor_w*.55) (monitor_h*.55)"
         "match:class ^(Bitwarden)$, center on"
 
         # stupid dolphin copy
