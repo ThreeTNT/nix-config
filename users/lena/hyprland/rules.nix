@@ -1,4 +1,4 @@
-{ username, config, ... }:
+{ username, ... }:
 {
   home-manager.users.${username} = {
     wayland.windowManager.hyprland.settings = {
@@ -27,14 +27,18 @@
         "match:title ^(.*)(wants to open)$, center on"
         "match:title ^(.*)(wants to open)$, float on"
         "match:class ^(com\\.saivert\\.pwvucontrol)$, float on"
-        "match:class ^(com\\.saivert\\.pwvucontrol)$, size (monitor_w*.30) (monitor_h*.40)"
+        "match:class ^(com\\.saivert\\.pwvucontrol)$, size 480 360"
         "match:class ^(com\\.saivert\\.pwvucontrol)$, center on"
-        "match:title ^(Friends List)$, float on"
-        "match:title ^(Steam Settings)$, float on"
-        "match:title ^(Sign in to Steam)$, float on"
+        # "match:title ^(Friends List)$, float on"
+        # "match:title ^(Steam Settings)$, float on"
+        # "match:title ^(Sign in to Steam)$, float on"
+        "match:class ^(steam)$, float on"
+        "match:class ^(steam)$, match:title ^(Steam)$, size 1500 900"
+        "match:class ^(org.prismlauncher.PrismLauncher)$, float on"
+        "match:class ^(org.prismlauncher.PrismLauncher)$, size 1280 960"
 
         "match:class ^(Bitwarden)$, float on"
-        "match:class ^(Bitwarden)$, size (monitor_w*.55) (monitor_h*.55)"
+        "match:class ^(Bitwarden)$, size 1280 960"
         "match:class ^(Bitwarden)$, center on"
 
         # stupid dolphin copy

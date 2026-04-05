@@ -45,6 +45,13 @@
           {
             devShells.default = pkgs.mkShell {
               packages = with pkgs; [
+                python314
+                (python314.withPackages (
+                  ps: with ps; [
+                    requests
+                  ]
+                ))
+                ty
                 nixd
                 nixfmt
                 nixfmt-tree

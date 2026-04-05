@@ -26,6 +26,7 @@ let
 
         llvm-vs-code-extensions.vscode-clangd
         ms-vscode.cmake-tools
+        ms-python.python
         tamasfe.even-better-toml
         rust-lang.rust-analyzer
 
@@ -60,19 +61,31 @@ let
       nix.serverPath = "nixd";
       nix.enableLanguageServer = true;
 
+      "[racket]" = {
+        editor.indentSize = 2;
+        editor.tabSize = 2;
+      };
+      "[C]" = {
+        editor.indentSize = 4;
+        editor.tabSize = 4;
+      };
     };
   };
 
-  homework-profile = lib.recursiveUpdate default-profile {
+  homework-profile = {
     extensions =
       (with pkgs.nix-vscode-extensions.vscode-marketplace; [
         llvm-vs-code-extensions.vscode-clangd
         evzen-wybitul.magic-racket
         jnoortheen.nix-ide
       ])
-      ++ [ lldb ];
+      ++ [
+        lldb
+      ];
 
-    userSettings.editor.indentSize = 2;
+    userSettings = lib.recursiveUpdate default-profile.userSettings {
+      # empty for now
+    };
   };
 in
 {
@@ -85,10 +98,10 @@ in
       enable = host-config.gui;
       package = pkgs.vscodium;
       profiles.default = default-profile;
-      profiles.Homework = homework-profile;
+      profiles."CS Homework" = homework-profile;
     };
 
     catppuccin.vscode.profiles.default.enable = true;
-    catppuccin.vscode.profiles.Homework.enable = true;
+    catppuccin.vscode.profiles."CS Homework".enable = true;
   };
 }

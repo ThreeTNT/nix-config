@@ -7,6 +7,7 @@
 {
   environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "qt6ct";
+    SAL_USE_VCLPLUGIN = "qt6";
   };
 
   home-manager.users.${username} = {
