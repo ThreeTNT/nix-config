@@ -28,6 +28,8 @@
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nix-vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
+
+    dolphin-overlay.url = "github:rumboon/dolphin-overlay";
   };
 
   outputs =

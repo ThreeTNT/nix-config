@@ -32,6 +32,8 @@ let
 
         icrawl.discord-vscode
         jnoortheen.nix-ide
+
+        mkhl.direnv
       ])
       ++ [
         lldb
@@ -78,6 +80,7 @@ let
         llvm-vs-code-extensions.vscode-clangd
         evzen-wybitul.magic-racket
         jnoortheen.nix-ide
+        mkhl.direnv
       ])
       ++ [
         lldb
