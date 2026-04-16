@@ -32,6 +32,9 @@
     usbutils
     lm_sensors
     ethtool
+    socat
+
+    appimage-run
   ];
 
   imports = lib.fileset.toList (
