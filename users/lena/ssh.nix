@@ -1,4 +1,7 @@
-{ username, ... }:
+{ username, config, ... }:
+let
+  home = config.home-manager.users.${username}.home.homeDirectory;
+in
 {
   home-manager.users.${username}.programs.ssh = {
     enable = true;
@@ -14,7 +17,7 @@
       };
       "minipc1" = {
         user = "lena";
-        hostname = "100.65.205.17";
+        hostname = "lenas-minipc";
       };
       "rpi" = {
         user = "lena";
@@ -32,13 +35,18 @@
         user = "z366zhu";
         hostname = "linux.student.cs.uwaterloo.ca";
       };
+      "slop" = {
+        user = "slop";
+        hostname = "10.0.30.186";
+      };
 
       "*" = {
+        identityAgent = "${home}/.bitwarden-ssh-agent.sock";
+        forwardAgent = false;
         sendEnv = [
           "-LANG"
           "-LC_CTYPE"
         ];
-        forwardAgent = true;
       };
     };
   };
