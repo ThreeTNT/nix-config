@@ -3,6 +3,7 @@
 - `hosts/$hostname` contains config files and flake for `$hostname`
 - `users/$username` contains home-manager config files for `$username`
 ## Todos
-- caelestia customization
-    - figure out why caelestia is using catpuccin colors
-- Limine instead of GRUB (needs in person)
+- Declarative flatpaks
+- Switch to Niri (maybe)
+- Celosia catppuccin theming
+- Fully declarative firefox
