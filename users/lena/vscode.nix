@@ -50,6 +50,7 @@ let
       };
       files.autoSave = false;
       editor.fontFamily = "Hack Nerd Font Mono";
+      editor.inlayHints.enabled = "offUnlessPressed";
       explorer.confirmPasteNative = false;
       explorer.confirmDelete = false;
       explorer.confirmDragAndDrop = false;
