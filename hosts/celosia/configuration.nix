@@ -3,7 +3,7 @@
   nix.gc = {
     automatic = true;
     dates = "daily";
-    options = "--delete-oldder-than 30d";
+    options = "--delete-older-than 7d";
   };
 
   time.timeZone = "America/Toronto";
@@ -14,8 +14,6 @@
     LC_MEASUREMENT = "en_CA.UTF-8";
   };
 
-  system.stateVersion = "25.11";
-
   imports = lib.fileset.toList (
     lib.fileset.difference (flake-inputs.globset.lib.glob ./. "**/*.nix") (
       lib.fileset.unions [
@@ -24,4 +22,6 @@
       ]
     )
   );
+
+  system.stateVersion = "25.11";
 }
