@@ -6,9 +6,9 @@
 }:
 let
   hashes = {
-    "Latte-color-schemes" = "sha256-wFZHCwACOFo9BHLTHnapuTLrbFEWa/+0kTXIobJ8cdQ=";
+    "Latte-color-schemes" = "sha256-T1+ScvBnWCiPjEA/TlQUtwXF6oVVE65wTC5I1sQzXAI=";
     "Frappe-color-schemes" = "sha256-AnLfRziRFTpAXejbZR7R5E0St5mrpJaGfidE24DiIwo=";
-    "Macchiato-color-schemes" = "sha256-Cv15cCTcv5yKGcXOkoB8eQn5c25ipK0xl0eNiSZax/I=";
+    "Macchiato-color-schemes" = "sha256-DmMM8YQLhBvqxWfmE2TLxgthZKvRaFmlBaMD66Wb5+A=";
     "Mocha-color-schemes" = "sha256-kmWdW8Mhsq8pNlsAyjDnWzP9WvR5y1KU2EVBBzGmsOU=";
   };
   theme-name = "${lib.strings.toSentenceCase flavor}-color-schemes";
@@ -26,7 +26,9 @@ let
     installPhase = ''
       runHook preInstall
       mkdir -p $out/share/color-schemes/
-      cp -r ${theme-name}/* $out/share/color-schemes/
+      cd $(ls -d */ | head -n 1)
+      cp -r ./* $out/share/color-schemes/
+      cd ../
       runHook postInstall
     '';
 

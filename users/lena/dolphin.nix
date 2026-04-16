@@ -3,7 +3,7 @@
   pkgs,
   lib,
   host-config,
-  flake-inputs, 
+  flake-inputs,
   ...
 }:
 lib.mkIf host-config.gui {
@@ -16,4 +16,3 @@ lib.mkIf host-config.gui {
     ];
   };
 }
-
