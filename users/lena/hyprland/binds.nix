@@ -13,11 +13,28 @@
 
       "$mod, Q, killactive"
       "$mod, F, togglefloating"
+      "$mod, S, togglespecialworkspace"
 
       "$mod CTRL, left, workspace, r-1"
       "$mod CTRL, right, workspace, r+1"
       "$mod CTRL ALT, left, movetoworkspace, r-1"
       "$mod CTRL ALT, right, movetoworkspace, r+1"
+
+      "$mod, 1, workspace, 1"
+      "$mod, 2, workspace, 2"
+      "$mod, 3, workspace, 3"
+      "$mod, 4, workspace, 4"
+      "$mod, 5, workspace, 5"
+      "$mod, 6, workspace, 6"
+      "$mod, 7, workspace, 7"
+      "$mod, 8, workspace, 8"
+      "$mod, 9, workspace, 9"
+      "$mod, 10, workspace, 10"
+
+      "$mod, UP, movefocus, u"
+      "$mod, DOWN, movefocus, d"
+      "$mod, LEFT, movefocus, l"
+      "$mod, RIGHT, movefocus, r"
     ];
 
     bindl = [

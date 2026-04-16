@@ -1,4 +1,4 @@
-{ username, ... }:
+{ username, lib, ... }:
 {
   home-manager.users.${username}.wayland.windowManager.hyprland = {
     settings = {
@@ -9,28 +9,18 @@
       ];
 
       general = {
-
         gaps_in = 5;
         gaps_out = 10;
 
         border_size = 4;
-        resize_on_border = true;
-
-        no_focus_fallback = true;
-
         allow_tearing = true;
-
-        snap = {
-          enabled = true;
-          window_gap = 4;
-          monitor_gap = 5;
-          respect_gaps = true;
-        };
       };
 
       exec-once = [
         "caelestia-shell"
-        "sleep 5 && bitwarden"
+        "bash ${./scripts/bitwarden-extension.sh}"
+        "sleep 3 && bitwarden"
+        "vesktop && sleep 3 && hyprctl dispatch movetoworkspacesilent special,class:vesktop"
       ];
 
       dwindle = {
@@ -46,33 +36,21 @@
         blur = {
           enabled = true;
           xray = true;
-          special = false;
-          new_optimizations = true;
           size = 10;
           passes = 3;
-          brightness = 1;
-          noise = 0.05;
-          contrast = 0.89;
-          vibrancy = 0.5;
-          vibrancy_darkness = 0.5;
-          popups = false;
-          popups_ignorealpha = 0.6;
-          input_methods = true;
-          input_methods_ignorealpha = 0.8;
         };
 
         shadow = {
           enabled = true;
-          ignore_window = true;
           range = 50;
           offset = "0 4";
-          render_power = 10;
-          color = "rgba(00000027)";
+          render_power = 3;
+          color = "rgba(000000A0)";
         };
 
         dim_inactive = true;
-        dim_strength = 0.05;
-        dim_special = 0.2;
+        dim_strength = 0.1;
+        dim_special = 0.3;
       };
 
       animations = {
@@ -135,14 +113,9 @@
         vrr = 1;
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = true;
-        animate_manual_resizes = false;
-        animate_mouse_windowdragging = false;
-        enable_swallow = false;
-        swallow_regex = "(foot|kitty|allacritty|Alacritty)";
         on_focus_under_fullscreen = 2;
         allow_session_lock_restore = true;
         session_lock_xray = true;
-        initial_workspace_tracking = false;
         focus_on_activate = true;
       };
 
