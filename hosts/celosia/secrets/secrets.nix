@@ -4,8 +4,11 @@
     age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
 
     secrets = {
-      home-wifi = {
-        sopsFile = ./home-wifi.yaml;
+      "wifi/home" = {
+        sopsFile = ./wifi.yaml;
+      };
+      "wifi/bg1004" = {
+        sopsFile = ./wifi.yaml;
       };
     };
   };
