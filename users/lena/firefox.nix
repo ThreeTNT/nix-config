@@ -3,6 +3,7 @@
   host-config,
   username,
   lib,
+  config,
   ...
 }:
 let
@@ -78,6 +79,8 @@ in
       package = pkgs.firefox-bin;
       profiles = profiles;
       policies = policies;
+
+      configPath = "${config.home-manager.users.${username}.xdg.configHome}/mozilla/firefox";
     };
   };
 }

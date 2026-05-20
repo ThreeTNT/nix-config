@@ -50,10 +50,6 @@ in
 
     xdg.userDirs = {
       createDirectories = true;
-      desktop = true;
-      documents = true;
-      download = true;
-      pictures = true;
     };
 
     home.stateVersion = config.system.stateVersion;

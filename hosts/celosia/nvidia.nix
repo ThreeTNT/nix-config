@@ -1,6 +1,15 @@
 { config, ... }:
 {
-  services.xserver.enable = false;
+  services.xserver = {
+    enable = true;
+  };
+  services.libinput = {
+    enable = true;
+    mouse = {
+      accelProfile = "flat";
+      accelSpeed = "0";
+    };
+  };
   services.xserver.videoDrivers = [ "nvidia" ];
 
   # ???

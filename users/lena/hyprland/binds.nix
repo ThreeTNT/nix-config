@@ -1,4 +1,7 @@
-{ username, ... }:
+{ username, config, ... }:
+let
+  pics = config.home-manager.users.${username}.xdg.userDirs.pictures;
+in
 {
   home-manager.users.${username}.wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
@@ -6,21 +9,24 @@
     bind = [
       "$mod, T, exec, kitty"
       "$mod, E, exec, firefox"
-      "$mod, B, exec, vesktop"
+      "$mod, V, exec, vesktop"
       "$mod, C, exec, codium"
+      "$mod, P, exec, hyprshot -m region -o ${pics}"
 
       "$mod, TAB, exec, caelestia shell drawers toggle launcher"
 
       "$mod, Q, killactive"
       "$mod, F, togglefloating"
+
       "$mod, S, togglespecialworkspace"
+      "$mod SHIFT, S, movetoworkspace, special"
 
       "$mod CTRL, left, workspace, r-1"
       "$mod CTRL, right, workspace, r+1"
       "$mod CTRL ALT, left, movetoworkspace, r-1"
       "$mod CTRL ALT, right, movetoworkspace, r+1"
 
-      "$mod, 1, workspace, 1"
+      "$mod, 1, exec, hyprctl dispatch workspace 1"
       "$mod, 2, workspace, 2"
       "$mod, 3, workspace, 3"
       "$mod, 4, workspace, 4"
@@ -35,6 +41,9 @@
       "$mod, DOWN, movefocus, d"
       "$mod, LEFT, movefocus, l"
       "$mod, RIGHT, movefocus, r"
+
+      "$mod, F11, fullscreen"
+      "$mod, F10, fullscreen, 1"
     ];
 
     bindl = [

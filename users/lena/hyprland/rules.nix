@@ -46,6 +46,7 @@ let
     "match:title .*\.exe, immediate on"
     "match:title .*minecraft.*, immediate on"
     "match:class ^(steam_app).*, immediate on"
+    "match:class ^gamescope$, immediate on"
 
     # Opacity (blurring)
     "match:class ^(kitty).*, opacity 0.9 0.8"
@@ -55,7 +56,7 @@ let
   ];
 
   celosia-windowrules = [
-    "match:class ^(com\\.saivert\\.pwvucontrol)$, size 480 360"
+    "match:class ^(com\\.saivert\\.pwvucontrol)$, size 720 480"
     "match:class ^(org.prismlauncher.PrismLauncher)$, size 1280 960"
     "match:class ^(steam)$, match:title ^(Steam)$, size 1500 900"
     "match:class ^(Bitwarden)$, size 1280 960"
