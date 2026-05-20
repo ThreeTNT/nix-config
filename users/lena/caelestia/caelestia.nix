@@ -6,7 +6,7 @@
 }:
 {
   home-manager.users.${username}.programs.caelestia = {
-    enable = (host-config.gpu != "none") && host-config.gui;
+    enable = host-config.gui;
     systemd.enable = false;
 
     settings = {

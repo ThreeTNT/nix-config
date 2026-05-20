@@ -13,7 +13,7 @@
           libxcursor
           libxi
           libxinerama
-          libxscrnsaver
+          xorg.libXScrnSaver
           libpng
           libpulseaudio
           libvorbis

@@ -19,6 +19,8 @@
     LC_MEASUREMENT = "en_CA.UTF-8";
   };
 
+  security.sudo.wheelNeedsPassword = false;
+
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 

@@ -1,8 +1,8 @@
-{ username, pkgs, ... }:
+{ username, pkgs, lib, host-config, ... }:
 {
   home-manager.users.${username} = {
     home.packages = with pkgs; [
-      bitwarden-desktop
+      (lib.mkIf host-config.gui bitwarden-desktop)
     ];
   };
 }
