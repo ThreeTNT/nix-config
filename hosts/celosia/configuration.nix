@@ -1,4 +1,9 @@
-{ lib, flake-inputs, ... }:
+{
+  lib,
+  flake-inputs,
+  pkgs,
+  ...
+}:
 {
   nix.gc = {
     automatic = true;
@@ -13,6 +18,13 @@
     LC_MONETARY = "en_CA.UTF-8";
     LC_MEASUREMENT = "en_CA.UTF-8";
   };
+
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    hyprshot
+  ];
 
   imports = lib.fileset.toList (
     lib.fileset.difference (flake-inputs.globset.lib.glob ./. "**/*.nix") (
