@@ -1,24 +1,32 @@
-{ ... }:
+{ lib, ... }:
+let
+  monitor-res = "2560x1440";
+in
 {
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
       efiSysMountPoint = "/boot";
     };
-    # grub = {
-    #   enable = true;
-    #   efiSupport = true;
-    #   device = "nodev";
-    #   useOSProber = true;
+    grub = {
+      enable = false;
+      efiSupport = true;
+      device = "nodev";
+      useOSProber = true;
+      gfxmodeEfi = monitor-res;
+      gfxmodeBios = monitor-res;
+    };
 
-    #   gfxmodeEfi = "3440x1440";
-    #   gfxmodeBios = "3440x1440";
-    # };
     limine = {
       enable = true;
-      resolution = "3440x1440x32";
+      resolution = monitor-res + "x32";
       efiSupport = true;
       maxGenerations = 10;
+      extraEntries = ''
+        /Windows
+          protocol: efi
+          path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
+      '';
     };
     timeout = 30;
   };
