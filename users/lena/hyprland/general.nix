@@ -2,15 +2,13 @@
 {
   home-manager.users.${username}.wayland.windowManager.hyprland = {
     settings = {
-      xwayland.force_zero_scaling = true;
-
       monitor = [
-        ",preferred,auto,1"
+        ",2560x1440@200,auto,1"
       ];
 
       general = {
-        gaps_in = 5;
-        gaps_out = 10;
+        gaps_in = 10;
+        gaps_out = 15;
 
         border_size = 4;
         allow_tearing = true;
@@ -18,9 +16,10 @@
 
       exec-once = [
         "caelestia-shell"
-        "bash ${./scripts/bitwarden-extension.sh}"
         "sleep 3 && bitwarden"
-        "vesktop && sleep 3 && hyprctl dispatch movetoworkspacesilent special,class:vesktop"
+        "bash ${./scripts/bitwarden-extension.sh}"
+        "vesktop"
+        "bash ${./scripts/vesktop.sh}"
       ];
 
       dwindle = {
@@ -89,12 +88,6 @@
       input = {
         kb_layout = "us";
         numlock_by_default = true;
-        repeat_delay = 250;
-        repeat_rate = 35;
-
-        follow_mouse = 1;
-        off_window_axis_events = 2;
-
         sensitivity = -0.35;
         accel_profile = "flat";
 
@@ -107,28 +100,17 @@
       };
 
       misc = {
-        disable_hyprland_logo = true;
-        disable_splash_rendering = true;
-        vfr = 1;
-        vrr = 1;
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = true;
-        on_focus_under_fullscreen = 2;
         allow_session_lock_restore = true;
         session_lock_xray = true;
         focus_on_activate = true;
+        middle_click_paste = false;
       };
 
       binds = {
         scroll_event_delay = 0;
         hide_special_on_workspace_change = true;
-      };
-
-      cursor = {
-        zoom_factor = 1;
-        zoom_rigid = false;
-        zoom_disable_aa = true;
-        hotspot_padding = 1;
       };
     };
   };
