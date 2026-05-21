@@ -15,6 +15,7 @@
     modules = [
       ../common.nix
       ./configuration.nix
+      ./hardware.nix
       inputs.home-manager.nixosModules.home-manager
       inputs.sops-nix.nixosModules.sops
     ];

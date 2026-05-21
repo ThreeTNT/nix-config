@@ -1,10 +1,5 @@
 { config, lib, pkgs, ... }:
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
-
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader = {
     efi = {
