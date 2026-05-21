@@ -25,11 +25,6 @@
     LC_MEASUREMENT = "en_CA.UTF-8";
   };
 
-  environment.systemPackages = with pkgs; [
-    fish
-    helix
-  ];
-
   services.openssh.enable = true;
   networking.firewall.enable = false;
 

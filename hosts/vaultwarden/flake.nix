@@ -16,6 +16,7 @@
       ../common.nix
       ./configuration.nix
       ./hardware.nix
+      ./docker-compose.nix
       inputs.home-manager.nixosModules.home-manager
       inputs.sops-nix.nixosModules.sops
     ];
