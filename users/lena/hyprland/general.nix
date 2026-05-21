@@ -20,6 +20,7 @@
         "bash ${./scripts/bitwarden-extension.sh}"
         "vesktop"
         "bash ${./scripts/vesktop.sh}"
+        "tailscale systray"
       ];
 
       dwindle = {
