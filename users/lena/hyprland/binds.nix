@@ -10,7 +10,7 @@ in
       "$mod, T, exec, kitty"
       "$mod, E, exec, firefox"
       "$mod, V, exec, vesktop"
-      "$mod, C, exec, codium"
+      "$mod, C, exec, code"
       "$mod, P, exec, hyprshot -m region -o ${pics}"
 
       "$mod, TAB, exec, caelestia shell drawers toggle launcher"

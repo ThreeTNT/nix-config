@@ -11,8 +11,8 @@ let
     mktplcRef = {
       publisher = "vadimcn";
       name = "vscode-lldb";
-      version = "1.12.1";
-      sha256 = "sha256-PEwhXVKYOF313tLJSB+QUfOfAHnwRSoKPLdHaGl79Xk=";
+      version = "1.12.2";
+      sha256 = "sha256-cOOClC0uE+Ym10k2T2p/mnTcgqvLVwDH+qo/W7ul3cs=";
     };
   };
   default-profile = {
@@ -34,12 +34,10 @@ let
         jnoortheen.nix-ide
 
         mkhl.direnv
-      ])
-      ++ [
-        lldb
-      ];
+      ]) ++ [ lldb ];
 
     userSettings = {
+      telemetry.telemetryLevel = "off";
       files.exclude = {
         "**/__pycache__" = true;
         "**/.cache" = true;
@@ -72,6 +70,10 @@ let
         editor.indentSize = 4;
         editor.tabSize = 4;
       };
+      "[python]" = {
+        editor.indentSize = 4;
+        editor.tabSize = 4;
+      };
     };
   };
 
@@ -82,10 +84,7 @@ let
         evzen-wybitul.magic-racket
         jnoortheen.nix-ide
         mkhl.direnv
-      ])
-      ++ [
-        lldb
-      ];
+      ]) ++ [ lldb ];
 
     userSettings = lib.recursiveUpdate default-profile.userSettings {
       # empty for now
@@ -100,7 +99,7 @@ in
   home-manager.users.${username} = {
     programs.vscode = {
       enable = host-config.gui;
-      package = pkgs.vscodium;
+      package = pkgs.vscode;
       profiles.default = default-profile;
       profiles."CS Homework" = homework-profile;
     };
