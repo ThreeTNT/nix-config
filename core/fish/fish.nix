@@ -14,7 +14,7 @@
     interactiveShellInit = builtins.readFile ./interactive_init.fish;
   };
 
-  environment.systemPackages = [
-    pkgs.fishPlugins.pure
+  environment.systemPackages = with pkgs; [
+    fishPlugins.pure
   ];
 }
