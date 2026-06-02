@@ -7,7 +7,7 @@
       ];
 
       general = {
-        gaps_in = 10;
+        gaps_in = 7;
         gaps_out = 15;
 
         border_size = 4;

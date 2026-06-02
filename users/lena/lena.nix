@@ -42,6 +42,7 @@ in
     imports = [
       flake-inputs.catppuccin.homeModules.catppuccin
       flake-inputs.caelestia-shell.homeManagerModules.default
+      flake-inputs.spicetify-nix.homeManagerModules.spicetify
     ];
 
     catppuccin.enable = false;

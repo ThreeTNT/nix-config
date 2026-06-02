@@ -33,6 +33,8 @@ let
     "match:class ^(Bitwarden)$, center on"
 
     "match:class ^(org\\.kde\\.dolphin)$, float on"
+    "match:class ^(Matplotlib)$, float on"
+    "match:class ^(Matplotlib)$, center on"
 
     # Picture-in-Picture
     "match:title ^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$, float on"

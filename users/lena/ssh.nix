@@ -6,6 +6,13 @@ in
   home-manager.users.${username}.programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
+    extraConfig = ''
+      Match host * exec "test -S ${home}/.bitwarden-ssh-agent.sock"
+        IdentityAgent ${home}/.bitwarden-ssh-agent.sock
+
+      Match host * exec "! test -S ${home}/.bitwarden-ssh-agent.sock"
+        IdentityAgent /run/user/1000/rbw/ssh-agent-socket
+    '';
     matchBlocks = {
       "mac" = {
         user = "lena";
@@ -41,7 +48,6 @@ in
       };
 
       "*" = {
-        identityAgent = "${home}/.bitwarden-ssh-agent.sock";
         forwardAgent = false;
         sendEnv = [
           "-LANG"

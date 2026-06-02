@@ -30,6 +30,9 @@
     nix-vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
 
     dolphin-overlay.url = "github:rumboon/dolphin-overlay";
+
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
