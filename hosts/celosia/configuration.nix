@@ -28,14 +28,17 @@
     hyprshot
   ];
 
-  imports = lib.fileset.toList (
-    lib.fileset.difference (flake-inputs.globset.lib.glob ./. "**/*.nix") (
-      lib.fileset.unions [
-        ./configuration.nix
-        ./flake.nix
-      ]
-    )
-  );
+  imports = [
+    ../../lena/lena.nix
+    ./lena.nix
+    ./nvidia.nix
+    ./secrets/secrets.nix
+    ./hyprland.nix
+    ./network.nix
+    ./hardware.nix
+    ./bootloader.nix
+    ./sunshine.nix
+  ];
 
   system.stateVersion = "25.11";
 }

@@ -1,43 +1,45 @@
 {
-  flake-inputs,
   lib,
   pkgs,
   ...
 }:
 {
-  programs.nix-ld.enable = true;
+  environment.systemPackages =
+    with pkgs;
+    [
+      helix
+      sops
+      age
+      ssh-to-age
 
-  environment.systemPackages = with pkgs; [
-    helix
-    sops
-    age
-    ssh-to-age
+      zip
+      unzip
+      xz
 
-    zip
-    unzip
-    xz
+      ripgrep
+      jq
+      yq-go
 
-    ripgrep
-    jq
-    yq-go
+      file
+      eza
 
-    file
-    eza
+      btop
+      fastfetch
 
-    btop
-    fastfetch
+      nmap
+      pciutils
+      usbutils
+      socat
+    ]
+    ++ lib.optionals stdenv.isLinux [
+      ethtool
+      lm-sensors
+      appimage-run
+    ];
 
-    nmap
-    pciutils
-    usbutils
-    lm_sensors
-    ethtool
-    socat
-
-    appimage-run
+  imports = [
+    ./fish/fish.nix
+    ./tailscale.nix
+    ./ssh.nix
   ];
-
-  imports = lib.fileset.toList (
-    lib.fileset.difference (flake-inputs.globset.lib.glob ./. "**/*.nix") ./core.nix
-  );
 }

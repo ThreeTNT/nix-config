@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader = {
@@ -30,4 +35,3 @@
 
   system.stateVersion = "25.11";
 }
-

@@ -1,4 +1,9 @@
-{ flake-inputs, ... }:
+{
+  flake-inputs,
+  pkgs,
+  lib,
+  ...
+}:
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -9,8 +14,5 @@
 
   imports = [
     ../core/core.nix
-    ../users/users.nix
-
-    flake-inputs.catppuccin.nixosModules.catppuccin
   ];
 }
