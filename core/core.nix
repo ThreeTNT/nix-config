@@ -33,7 +33,6 @@
     ]
     ++ lib.optionals stdenv.isLinux [
       ethtool
-      lm-sensors
       appimage-run
     ];
 

@@ -1,0 +1,51 @@
+
+#!/usr/bin/env bash
+set -o errexit -o nounset -o pipefail
+
+want="${1:?usage: ssh-agent-select <bitwarden|rbw>}"
+
+runtime_dir="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
+
+if [ -n "${RBW_PROFILE:-}" ]; then
+  rbw_sock="$runtime_dir/rbw-${RBW_PROFILE}/ssh-agent-socket"
+else
+  rbw_sock="$runtime_dir/rbw/ssh-agent-socket"
+fi
+
+bw_sock="${BITWARDEN_SSH_AUTH_SOCK:-$HOME/.bitwarden-ssh-agent.sock}"
+
+is_graphical() {
+  if [ -n "${SSH_CONNECTION:-}" ] \
+    || [ -n "${SSH_CLIENT:-}" ] \
+    || [ -n "${SSH_TTY:-}" ]; then
+    return 1
+  fi
+  [ -n "${WAYLAND_DISPLAY:-}" ] || [ -n "${DISPLAY:-}" ]
+}
+
+# Allow tests to stub the readiness probes via env: STUB_BW / STUB_RBW = 0|1
+bitwarden_ready() {
+  if [ -n "${STUB_BW:-}" ]; then return "$STUB_BW"; fi
+  [ -S "$bw_sock" ] || return 1
+  SSH_AUTH_SOCK="$bw_sock" timeout 2 ssh-add -l >/dev/null 2>&1
+}
+
+rbw_ready() {
+  if [ -n "${STUB_RBW:-}" ]; then return "$STUB_RBW"; fi
+  [ -S "$rbw_sock" ] || return 1
+  timeout 5 rbw unlocked >/dev/null 2>&1
+}
+
+choose() {
+  if bitwarden_ready; then
+    echo bitwarden
+  elif rbw_ready; then
+    echo rbw
+  elif is_graphical; then
+    echo bitwarden
+  else
+    echo rbw
+  fi
+}
+
+[ "$(choose)" = "$want" ]

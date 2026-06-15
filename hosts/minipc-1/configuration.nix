@@ -18,6 +18,9 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
+  catppuccin.enable = true;
+  catppuccin.autoEnable = false;
+
   imports = [
     ../../lena/lena.nix
     ./lena.nix

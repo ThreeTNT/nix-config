@@ -6,7 +6,7 @@
     group = "wheel";
     extraGroups = [ ];
     hashedPasswordFile = config.sops.secrets.weak-password.path;
-    home = /home/lena;
+    home = "/home/lena";
   };
 
   home-manager.users.lena = {
@@ -31,7 +31,7 @@
   imports = [
     ../../lena/secrets/secrets.nix
     ../../lena/lena.nix
-    ../../lena/ssh.nix
+    ../../lena/ssh/ssh.nix
     ../../lena/basic-linux.nix
 
     ../../lena/fish/fish.nix

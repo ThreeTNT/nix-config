@@ -24,6 +24,9 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
+  catppuccin.enable = true;
+  catppuccin.autoEnable = false;
+
   environment.systemPackages = with pkgs; [
     hyprshot
   ];

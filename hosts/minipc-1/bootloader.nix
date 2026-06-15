@@ -12,5 +12,5 @@
     };
     timeout = 5;
   };
-  catppuccin.limine.enable = true;
+  catppuccin.grub.enable = true;
 }

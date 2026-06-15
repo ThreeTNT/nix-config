@@ -35,10 +35,10 @@ in
         User = "z366zhu";
         HostName = "linux.student.cs.uwaterloo.ca";
       };
-      "Match host * exec \"test -S ${home}/.bitwarden-ssh-agent.sock\"" = {
+      "Match host * exec \"${./ssh-agent-select} bitwarden\"" = {
         IdentityAgent = "${home}/.bitwarden-ssh-agent.sock";
       };
-      "Match host * exec \"! test -S ${home}/.bitwarden-ssh-agent.sock\"" = {
+      "Match host * exec \"${./ssh-agent-select} rbw\"" = {
         IdentityAgent = "/run/user/1000/rbw/ssh-agent-socket";
       };
       "*" = {
