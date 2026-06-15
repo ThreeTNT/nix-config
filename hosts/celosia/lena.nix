@@ -49,7 +49,7 @@
 
     ../../lena/caelestia/caelestia.nix
 
-    ../../lena/bitwarden/bitwarden-linux.nix
+    ../../lena/bitwarden/bitwarden.nix
     ../../lena/bitwarden/rbw.nix
 
     ../../lena/gaming/modding.nix

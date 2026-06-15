@@ -2,13 +2,16 @@
 {
   sops.secrets.weak-password.neededForUsers = true;
   users.users.lena = {
-    home = /Users/lena;
+    isNormalUser = true;
+    group = "wheel";
+    extraGroups = [ ];
+    hashedPasswordFile = config.sops.secrets.weak-password.path;
+    home = /home/lena;
   };
 
   home-manager.users.lena = {
     imports = with flake-inputs; [
       catppuccin.homeModules.catppuccin
-      spicetify-nix.homeManagerModules.spicetify
     ];
 
     catppuccin = {
@@ -29,30 +32,18 @@
     ../../lena/secrets/secrets.nix
     ../../lena/lena.nix
     ../../lena/ssh.nix
-    ../../lena/basic-mac.nix
+    ../../lena/basic-linux.nix
 
     ../../lena/fish/fish.nix
 
-    ../../lena/bitwarden/bitwarden.nix
     ../../lena/bitwarden/rbw.nix
-
-    ../../lena/gaming/modding.nix
-    ../../lena/gaming/prismlauncher.nix
 
     ../../lena/git.nix
     ../../lena/fastfetch.nix
     ../../lena/btop.nix
 
-    # TODO: gtk2-3?
-
-    ../../lena/vesktop.nix
-    ../../lena/vscode.nix
     ../../lena/helix.nix
-    ../../lena/spotify.nix
     ../../lena/direnv.nix
-    ../../lena/firefox.nix
-    ../../lena/kitty.nix
     ../../lena/fonts.nix
   ];
-
 }

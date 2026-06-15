@@ -1,20 +1,21 @@
 { inputs, ... }:
 {
-  flake.nixosConfigurations.celosia = inputs.nixpkgs.lib.nixosSystem {
+  flake.nixosConfigurations.minipc-1 = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
 
     specialArgs = {
       flake-inputs = inputs;
 
       host-config = {
-        gui = true;
+        gui = false;
         battery = false;
-        gpu = "cuda";
+        gpu = "none";
       };
     };
     modules = [
       ../common.nix
       ./configuration.nix
+      ./hardware.nix
       inputs.home-manager.nixosModules.home-manager
       inputs.sops-nix.nixosModules.sops
     ];
