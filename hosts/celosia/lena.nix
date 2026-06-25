@@ -50,7 +50,7 @@
     ../../lena/caelestia/caelestia.nix
 
     ../../lena/bitwarden/bitwarden.nix
-    ../../lena/bitwarden/rbw.nix
+    ../../lena/bitwarden/rbw-linux.nix
 
     ../../lena/gaming/modding.nix
     ../../lena/gaming/prismlauncher.nix

@@ -34,7 +34,7 @@
     ../../lena/fish/fish.nix
 
     ../../lena/bitwarden/bitwarden-mac.nix
-    ../../lena/bitwarden/rbw.nix
+    ../../lena/bitwarden/rbw-mac.nix
 
     ../../lena/gaming/modding.nix
     ../../lena/gaming/prismlauncher.nix

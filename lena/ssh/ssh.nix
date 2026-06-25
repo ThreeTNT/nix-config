@@ -9,6 +9,7 @@ let
 in
 {
   home-manager.users.lena = {
+    ## This appears to be broken on Mac
     # home.file."ssh-agent-select".source =
     #   config.home-manager.users.lena.lib.file.mkOutOfStoreSymlink ./ssh-agent-select;
 
@@ -49,13 +50,8 @@ in
           User = "z366zhu";
           HostName = "linux.student.cs.uwaterloo.ca";
         };
-        "Match host * exec \"${home}/ssh-agent-select bitwarden\"" = {
-          IdentityAgent = "${home}/.bitwarden-ssh-agent.sock";
-        };
-        "Match host * exec \"${home}/ssh-agent-select rbw\"" = {
-          IdentityAgent = "/run/user/1000/rbw/ssh-agent-socket";
-        };
-        "*" = {
+        "Match host * exec \"${home}/ssh-agent-select\"" = {
+          IdentityAgent = "${home}/.ssh-agent";
           ForwardAgent = false;
           SendEnv = [
             "-LANG"

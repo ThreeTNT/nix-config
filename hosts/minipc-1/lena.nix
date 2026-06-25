@@ -36,7 +36,7 @@
 
     ../../lena/fish/fish.nix
 
-    ../../lena/bitwarden/rbw.nix
+    ../../lena/bitwarden/rbw-linux.nix
 
     ../../lena/git.nix
     ../../lena/fastfetch.nix
