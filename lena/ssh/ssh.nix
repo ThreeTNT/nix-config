@@ -1,11 +1,20 @@
-{ config, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 let
   home = config.home-manager.users.lena.home.homeDirectory;
 in
 {
   home-manager.users.lena = {
-    home.file."ssh-agent-select".source =
-      config.home-manager.users.lena.lib.file.mkOutOfStoreSymlink ./ssh-agent-select;
+    # home.file."ssh-agent-select".source =
+    #   config.home-manager.users.lena.lib.file.mkOutOfStoreSymlink ./ssh-agent-select;
+
+    home.activation.ssh-selector-link = lib.mkAfter ''
+      ln -sf ${./ssh-agent-select} ${home}/ssh-agent-select
+    '';
 
     programs.ssh = {
       enable = true;

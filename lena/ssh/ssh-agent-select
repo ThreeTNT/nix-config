@@ -1,18 +1,15 @@
-
 #!/usr/bin/env bash
 set -o errexit -o nounset -o pipefail
 
 want="${1:?usage: ssh-agent-select <bitwarden|rbw>}"
 
-runtime_dir="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
-
-if [ -n "${RBW_PROFILE:-}" ]; then
-  rbw_sock="$runtime_dir/rbw-${RBW_PROFILE}/ssh-agent-socket"
+if [ $(uname) = "Darwin" ]; then
+  rbw_sock="$(getconf DARWIN_USER_TEMP_DIR)/rbw-$(id -u)/ssh-agent-socket"
 else
-  rbw_sock="$runtime_dir/rbw/ssh-agent-socket"
+  rbw_sock="$XDG_RUNTIME_DIR/run/user/$(id -u)/rbw/ssh-agent-socket"
 fi
 
-bw_sock="${BITWARDEN_SSH_AUTH_SOCK:-$HOME/.bitwarden-ssh-agent.sock}"
+bw_sock="$HOME/.bitwarden-ssh-agent.sock"
 
 is_graphical() {
   if [ -n "${SSH_CONNECTION:-}" ] \

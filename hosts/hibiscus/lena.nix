@@ -28,12 +28,12 @@
   imports = [
     ../../lena/secrets/secrets.nix
     ../../lena/lena.nix
-    ../../lena/ssh.nix
+    ../../lena/ssh/ssh.nix
     ../../lena/basic-mac.nix
 
     ../../lena/fish/fish.nix
 
-    ../../lena/bitwarden/bitwarden.nix
+    ../../lena/bitwarden/bitwarden-mac.nix
     ../../lena/bitwarden/rbw.nix
 
     ../../lena/gaming/modding.nix
