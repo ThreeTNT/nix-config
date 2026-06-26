@@ -4,7 +4,7 @@ set -o errexit -o nounset -o pipefail
 if [ $(uname) = "Darwin" ]; then
   rbw_sock="$(getconf DARWIN_USER_TEMP_DIR | sed 's#/$##')/rbw-$(id -u)/ssh-agent-socket"
 else
-  rbw_sock="$XDG_RUNTIME_DIR/run/user/$(id -u)/rbw/ssh-agent-socket"
+  rbw_sock="$XDG_RUNTIME_DIR/rbw/ssh-agent-socket"
 fi
 
 bw_sock="$HOME/.bitwarden-ssh-agent.sock"
