@@ -1,4 +1,6 @@
 {
+  programs.nix-ld.enable = true;
+
   nix.gc = {
     automatic = true;
     dates = "weekly";

@@ -4,11 +4,7 @@
   ...
 }:
 let
-  cfg_dir =
-    if pkgs.stdenv.isLinux then
-      "${config.home-manager.users.lena.xdg.configHome}"
-    else
-      "${config.home-manager.users.lena.home}/Library/Application Support";
+  cfg_dir = config.home-manager.users.lena.xdg.configHome;
 in
 {
   home-manager.users.lena = {

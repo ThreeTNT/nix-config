@@ -51,7 +51,6 @@
 
     ../../lena/bitwarden/bitwarden-linux.nix
     ../../lena/bitwarden/rbw.nix
-
     ../../lena/gaming/modding.nix
     ../../lena/gaming/prismlauncher.nix
     ../../lena/gaming/steam.nix
