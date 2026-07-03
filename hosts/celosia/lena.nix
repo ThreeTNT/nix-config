@@ -10,7 +10,7 @@
       "i2c"
     ];
     hashedPasswordFile = config.sops.secrets.weak-password.path;
-    home = /home/lena;
+    home = "/home/lena";
   };
 
   home-manager.users.lena = {
@@ -37,7 +37,7 @@
   imports = [
     ../../lena/secrets/secrets.nix
     ../../lena/lena.nix
-    ../../lena/ssh.nix
+    ../../lena/ssh/ssh.nix
     ../../lena/basic-linux.nix
 
     ../../lena/fish/fish.nix
@@ -49,7 +49,7 @@
 
     ../../lena/caelestia/caelestia.nix
 
-    ../../lena/bitwarden/bitwarden.nix
+    ../../lena/bitwarden/bitwarden-linux.nix
     ../../lena/bitwarden/rbw.nix
 
     ../../lena/gaming/modding.nix
