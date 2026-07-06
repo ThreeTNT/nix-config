@@ -1,4 +1,4 @@
-{ pkgs, flake-inputs, ... }:
+{ pkgs, ... }:
 {
   services.displayManager = {
     sddm.enable = true;
@@ -13,7 +13,6 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-    package = flake-inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   };
 
   xdg.portal = {

@@ -16,8 +16,11 @@
   home-manager.users.lena = {
     imports = with flake-inputs; [
       catppuccin.homeModules.catppuccin
-      caelestia-shell.homeManagerModules.default
       spicetify-nix.homeManagerModules.spicetify
+      niri-nix.homeModules.niri
+      dms.homeModules.dank-material-shell
+      dms.homeModules.niri
+      dms-plugin-registry.nixosModules.default
     ];
 
     catppuccin = {
@@ -42,15 +45,21 @@
 
     ../../lena/fish/fish.nix
 
-    { home-manager.users.lena.wayland.windowManager.hyprland.enable = true; }
-    ../../lena/hyprland/general.nix
-    ../../lena/hyprland/rules.nix
-    ../../lena/hyprland/binds.nix
+    # { home-manager.users.lena.wayland.windowManager.hyprland.enable = true; }
+    # ../../lena/hyprland/general.nix
+    # ../../lena/hyprland/rules.nix
+    # ../../lena/hyprland/binds.nix
 
-    ../../lena/caelestia/caelestia.nix
+    ../../lena/niri/general.nix
+    ../../lena/niri/rules.nix
+    ../../lena/niri/binds.nix
+
+    # ../../lena/caelestia/caelestia.nix
+
+    ../../lena/dms/main.nix
 
     ../../lena/bitwarden/bitwarden-linux.nix
-    ../../lena/bitwarden/rbw.nix
+    ../../lena/bitwarden/rbw-linux.nix
     ../../lena/gaming/modding.nix
     ../../lena/gaming/prismlauncher.nix
     ../../lena/gaming/steam.nix

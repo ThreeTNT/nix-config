@@ -28,7 +28,7 @@
   catppuccin.autoEnable = false;
 
   environment.systemPackages = with pkgs; [
-    hyprshot
+    # hyprshot
   ];
 
   imports = [
@@ -36,7 +36,7 @@
     ./lena.nix
     ./nvidia.nix
     ./secrets/secrets.nix
-    ./hyprland.nix
+    ./niri.nix
     ./network.nix
     ./hardware.nix
     ./bootloader.nix

@@ -1,6 +1,6 @@
 { host-config, ... }:
 {
-  home-manager.users.lena.programs.caelestia = {
+  home-manager.users.lena.programs.caelestia-shell = {
     enable = true;
     systemd.enable = false;
 
