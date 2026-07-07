@@ -4,6 +4,10 @@
   # set once, globally, via `screenshot-path` in general.nix instead of per
   # keybind -- niri's own screenshot action always saves there.
   home-manager.users.lena.programs.niri.settings = {
+    workspaces = {
+      "scratch" = { };
+    };
+
     binds = with config.home-manager.users.lena.lib.niri.actions; {
       "Mod+T".action = spawn "kitty";
       "Mod+E".action = spawn "firefox";
@@ -13,15 +17,17 @@
       "Mod+P".action = spawn "niri" "msg" "action" "screenshot";
       "Mod+Tab".action = spawn "dms" "shell" "drawers" "toggle" "launcher";
 
+      # === Window controls ===
+      "Mod+F11".action = fullscreen-window;
+      "Mod+F10".action = maximize-column;
       "Mod+Q".action = close-window;
       "Mod+F".action = toggle-window-floating;
+      # =======================
 
-      # niri has no true special/scratchpad workspace. This uses a plain
-      # named workspace called "scratch" as the closest approximation: it
-      # will not float above everything like Hyprland's special workspace
-      # does — focusing it just switches you to that workspace instead.
+      # === Scratchpad ===
       "Mod+S".action = focus-workspace "scratch";
-      "Mod+Shift+S".action = spawn "niri" "msg" "action" "move-column-to-workspace" "scratch";
+      "Mod+Shift+S".action = spawn "niri" "msg" "action" "move-window-to-workspace" "scratch";
+      # ==================
 
       # === Navigations ===
       "Mod+Ctrl+WheelScrollDown" = {
@@ -57,13 +63,6 @@
       "Mod+8".action = focus-workspace 8;
       "Mod+9".action = focus-workspace 9;
       # ========================
-
-      # Hyprland's movefocus works in all 4 directions across the whole
-      # tiled layout. niri splits this: up/down move focus within a column,
-      # left/right move focus between columns.
-
-      "Mod+F11".action = fullscreen-window;
-      "Mod+F10".action = maximize-column;
 
       "XF86AudioMicMute" = {
         allow-when-locked = true;

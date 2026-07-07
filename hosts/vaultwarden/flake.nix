@@ -13,7 +13,7 @@
       };
     };
     modules = [
-      ../common.nix
+      ../../common.nix
       ./configuration.nix
       ./hardware.nix
       ./docker-compose.nix

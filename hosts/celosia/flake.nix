@@ -13,7 +13,7 @@
       };
     };
     modules = [
-      ../common.nix
+      ../../common.nix
       ./configuration.nix
       inputs.home-manager.nixosModules.home-manager
       inputs.sops-nix.nixosModules.sops

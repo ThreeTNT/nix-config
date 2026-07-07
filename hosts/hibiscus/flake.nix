@@ -14,7 +14,7 @@
     };
 
     modules = [
-      ../common.nix
+      ../../common.nix
       ./configuration.nix
       inputs.home-manager.darwinModules.home-manager
       inputs.sops-nix.darwinModules.sops

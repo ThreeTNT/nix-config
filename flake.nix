@@ -43,37 +43,37 @@
 
   outputs =
     inputs@{ flake-parts, ... }:
-    flake-parts.lib.mkFlake { inherit inputs; } (
-      flake-parts-inputs@{ ... }:
-      {
-        systems = [
-          "x86_64-linux"
-          "aarch64-darwin"
-        ];
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      # add more systems as necessary
+      systems = [
+        "x86_64-linux"
+        "aarch64-darwin"
+      ];
 
-        perSystem =
-          { pkgs, ... }:
-          {
-            devShells.default = pkgs.mkShell {
-              packages = with pkgs; [
-                python314
-                (python314.withPackages (
-                  ps: with ps; [
-                    requests
-                  ]
-                ))
-                ty
-                nixd
-                nixfmt
-                nixfmt-tree
-              ];
-
-            };
+      perSystem =
+        { pkgs, ... }:
+        {
+          devShells.default = pkgs.mkShell {
+            packages = with pkgs; [
+              python314
+              (python314.withPackages (
+                ps: with ps; [
+                  requests
+                ]
+              ))
+              ty
+              nixd
+              nixfmt
+              nixfmt-tree
+            ];
           };
+        };
 
-        imports = [
-          ./hosts/hosts.nix
-        ];
-      }
-    );
+      imports = [
+        ./hosts/celosia/flake.nix
+        ./hosts/minipc-1/flake.nix
+        ./hosts/vaultwarden/flake.nix
+        ./hosts/hibiscus/flake.nix
+      ];
+    };
 }
