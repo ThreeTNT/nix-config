@@ -24,7 +24,7 @@ in
       settings = {
         "mac" = {
           User = "lena";
-          HostName = "lenas-mac";
+          HostName = "hibiscus";
         };
         "pc" = {
           User = "lena";

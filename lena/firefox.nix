@@ -78,7 +78,7 @@ in
       policies = policies;
 
       configPath =
-        if pkgs.stdenv.isLinux then
+        if pkgs.stdenv.hostPlatform.isLinux then
           "${config.home-manager.users.lena.xdg.configHome}/mozilla/firefox"
         else
           "${config.home-manager.users.lena.home.homeDirectory}/Library/Application Support/Firefox/Profiles";

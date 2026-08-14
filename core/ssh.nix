@@ -1,8 +1,12 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  ...
+}:
 {
   services.openssh.enable = true;
   services.openssh.settings =
-    if pkgs.stdenv.isLinux then
+    if pkgs.stdenv.hostPlatform.isLinux then
       {
         PasswordAuthentication = true;
         KexAlgorithms = [

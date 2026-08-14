@@ -40,7 +40,7 @@
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   hardware.i2c.enable = true;
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
   boot.extraModprobeConfig = ''
     options snd-hda-intel probe_mask=1

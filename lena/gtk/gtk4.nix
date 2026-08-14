@@ -14,7 +14,7 @@ let
     accent = accent;
   };
 in
-lib.mkIf pkgs.stdenv.isLinux {
+lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
   home-manager.users.lena = {
     gtk = {
       enable = host-config.gui;

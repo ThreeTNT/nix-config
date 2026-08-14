@@ -31,7 +31,7 @@
       usbutils
       socat
     ]
-    ++ lib.optionals stdenv.isLinux [
+    ++ lib.optionals stdenv.hostPlatform.isLinux [
       ethtool
       appimage-run
     ];
