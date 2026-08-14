@@ -66,9 +66,8 @@ let
   theme-name = "catppuccin-${flavor}-${accent}-standard";
 in
 pkgs.stdenv.mkDerivation {
-  name = "Catppuccin GTK Theme";
-  pname = theme-name;
-  version = "1.0.6";
+  pname = "catppuccin-gtk-theme";
+  version = "v1.0.6";
 
   src = pkgs.fetchzip {
     url = "https://github.com/VanillaDaFur/catppuccin-gtk/releases/download/v1.0.6/${theme-name}.zip";

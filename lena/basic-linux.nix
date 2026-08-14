@@ -15,5 +15,7 @@
     (lib.mkIf host-config.gui gamescope)
 
     ddcutil
+
+    kiro-cli
   ];
 }

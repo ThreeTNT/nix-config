@@ -16,7 +16,7 @@
 
   programs.niri = {
     enable = true;
-    package = flake-inputs.niri-nix.packages.${pkgs.stdenv.hostPlatform.system}.niri-stable;
+    package = flake-inputs.niri-nix.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
   };
 
   xdg.portal = {

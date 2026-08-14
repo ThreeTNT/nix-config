@@ -4,7 +4,7 @@
     home.pointerCursor = {
       # name = "Catppuccin-Macchiato-Mauve-Cursors";
       # package = pkgs.catppuccin-cursors.macchiatoMauve;
-      size = 14;
+      size = 28;
       gtk.enable = true;
       x11.enable = true;
     };

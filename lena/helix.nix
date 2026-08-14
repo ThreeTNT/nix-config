@@ -88,6 +88,18 @@
             unit = "  ";
           };
         }
+        {
+          name = "rust";
+          language-servers = [
+            "rust-analyzer"
+            "clippy"
+          ];
+          auto-format = true;
+          indent = {
+            tab-width = 4;
+            unit = "    ";
+          };
+        }
       ];
     };
 
