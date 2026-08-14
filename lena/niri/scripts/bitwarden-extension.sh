@@ -13,26 +13,34 @@
 declare -A handled
 
 handle_line() {
+  local line="$1"
   local id app_id title is_floating
 
-  id=$(jq -r 'select(has("WindowOpenedOrChanged")) | .WindowOpenedOrChanged.window.id // empty')
+  IFS=$'\t' read -r id app_id title is_floating < <(
+    jq -r '
+      if has("WindowOpenedOrChanged") then
+        .WindowOpenedOrChanged.window
+        | [(.id // empty), (.app_id // empty), (.title // empty), (.is_floating // empty)]
+        | @tsv
+      else
+        empty
+      end
+    ' <<< "$line"
+  )
+
   [ -n "$id" ] || return 0
-
-  app_id=$(jq -r '.WindowOpenedOrChanged.window.app_id // empty')
-  title=$(jq -r '.WindowOpenedOrChanged.window.title // empty')
-  is_floating=$(jq -r '.WindowOpenedOrChanged.window.is_floating')
-
   [ "$app_id" = "firefox" ] || return 0
   [[ "$title" == Extension:*"— Mozilla Firefox" ]] || return 0
   [ -z "${handled[$id]}" ] || return 0
   [ "$is_floating" = "true" ] && return 0
 
-  handled[$id]=1
+  echo "meow"
 
-  niri msg action toggle-window-floating --id "$id"
+  handled[$id]=1
+  niri msg action focus-window --id "$id"
+  niri msg action focus-floating
   niri msg action set-window-width --id "$id" "800"
   niri msg action set-window-height --id "$id" "800"
-  niri msg action focus-window --id "$id"
   niri msg action center-window
 }
 
