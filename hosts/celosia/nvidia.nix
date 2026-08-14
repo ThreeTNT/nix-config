@@ -12,8 +12,6 @@
   };
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  services.power-profiles-daemon.enable = true;
-
   # ???
   nixpkgs.config.cudaSupport = true;
 

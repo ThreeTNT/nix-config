@@ -2,7 +2,6 @@
   lib,
   flake-inputs,
   pkgs,
-  config,
   ...
 }:
 {
@@ -10,10 +9,6 @@
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 7d";
-  };
-  programs.nix-ld = {
-    enable = true;
-    libraries = [ config.boot.kernelPackages.nvidia_x11 ];
   };
 
   time.timeZone = "America/Toronto";
@@ -46,7 +41,6 @@
     ./hardware.nix
     ./bootloader.nix
     ./sunshine.nix
-    ./audio.nix
   ];
 
   system.stateVersion = "25.11";

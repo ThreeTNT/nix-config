@@ -5,7 +5,6 @@
     isNormalUser = true;
     group = "wheel";
     extraGroups = [
-      "dialout"
       "input"
       "video"
       "i2c"
@@ -20,6 +19,7 @@
       spicetify-nix.homeManagerModules.spicetify
       niri-nix.homeModules.niri
       dms.homeModules.dank-material-shell
+      dms.homeModules.niri
       dms-plugin-registry.nixosModules.default
     ];
 
@@ -50,13 +50,11 @@
     # ../../lena/hyprland/rules.nix
     # ../../lena/hyprland/binds.nix
 
-    # ../../lena/caelestia/caelestia.nix
-
     ../../lena/niri/general.nix
     ../../lena/niri/rules.nix
     ../../lena/niri/binds.nix
 
-    ../../lena/wechat.nix
+    # ../../lena/caelestia/caelestia.nix
 
     ../../lena/dms/main.nix
 
@@ -84,7 +82,6 @@
     ../../lena/dolphin.nix
     ../../lena/direnv.nix
     ../../lena/libreoffice.nix
-    ../../lena/obsidian.nix
     ../../lena/firefox.nix
     ../../lena/kitty.nix
     ../../lena/fonts.nix
