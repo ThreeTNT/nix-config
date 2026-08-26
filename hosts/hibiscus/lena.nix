@@ -47,6 +47,7 @@
 
     ../../lena/vesktop.nix
     ../../lena/obsidian.nix
+    # ../../lena/marktext.nix
     ../../lena/vscode.nix
     ../../lena/helix.nix
     ../../lena/spotify.nix
