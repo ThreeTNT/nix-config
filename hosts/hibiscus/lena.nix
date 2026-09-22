@@ -43,8 +43,6 @@
     ../../lena/fastfetch.nix
     ../../lena/btop.nix
 
-    # TODO: gtk2-3?
-
     ../../lena/vesktop.nix
     ../../lena/obsidian.nix
     # ../../lena/marktext.nix

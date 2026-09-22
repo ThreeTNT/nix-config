@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  username,
   host-config,
   config,
   ...
@@ -18,7 +17,11 @@ lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
   home-manager.users.lena = {
     gtk = {
       enable = host-config.gui;
-      colorScheme = if flavor == "latte" then "dark" else "light";
+      colorScheme = if flavor == "latte" then "light" else "dark";
+      theme = {
+        name = "catppuccin-${flavor}-${accent}-standard";
+        package = theme;
+      };
       gtk4.theme = {
         name = "catppuccin-${flavor}-${accent}-standard";
         package = theme;
