@@ -20,7 +20,7 @@
           editor = {
             line-number = "relative";
             mouse = true;
-            scroll-lines = 1;
+            scroll-lines = 2;
             cursor-shape = {
               insert = "bar";
               normal = "block";
@@ -98,6 +98,14 @@
           indent = {
             tab-width = 4;
             unit = "    ";
+          };
+        }
+        {
+          name = "scala";
+          auto-format = true;
+          indent = {
+            tab-width = 2;
+            unit = "  ";
           };
         }
       ];
