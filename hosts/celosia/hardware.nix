@@ -19,7 +19,6 @@
     "sd_mod"
   ];
   boot.kernelModules = [
-    "kvm-amd"
     "uinput"
   ];
 
@@ -40,7 +39,10 @@
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   hardware.i2c.enable = true;
-  hardware.graphics.enable = true;
+
+  hardware.spacenavd.enable = true;
+  services.samba.enable = true;
+  services.samba.winbindd.enable = true;
 
   boot.extraModprobeConfig = ''
     options snd-hda-intel probe_mask=1

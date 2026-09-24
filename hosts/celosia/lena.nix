@@ -1,4 +1,8 @@
-{ flake-inputs, config, ... }:
+{
+  flake-inputs,
+  config,
+  ...
+}:
 {
   sops.secrets.weak-password.neededForUsers = true;
   users.users.lena = {
@@ -9,6 +13,7 @@
       "input"
       "video"
       "i2c"
+      "plugdev"
     ];
     hashedPasswordFile = config.sops.secrets.weak-password.path;
     home = "/home/lena";
@@ -88,6 +93,7 @@
     ../../lena/firefox.nix
     ../../lena/kitty.nix
     ../../lena/fonts.nix
+    ../../lena/fusion360/fusion360-linux.nix
   ];
 
 }
