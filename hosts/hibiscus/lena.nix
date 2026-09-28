@@ -1,4 +1,4 @@
-{ flake-inputs, config, ... }:
+{ flake-inputs, ... }:
 {
   sops.secrets.weak-password.neededForUsers = true;
   users.users.lena = {
