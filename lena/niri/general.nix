@@ -45,13 +45,6 @@
           }
           {
             command = [
-              "bash"
-              "${./scripts/bitwarden-extension.sh}"
-            ];
-          }
-
-          {
-            command = [
               "sh"
               "-c"
               "sleep 3 && vesktop"
@@ -59,8 +52,9 @@
           }
           {
             command = [
-              "bash"
-              "${./scripts/vesktop.sh}"
+              "sh"
+              "-c"
+              "sleep 3 && spotify"
             ];
           }
         ];

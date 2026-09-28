@@ -48,9 +48,9 @@ in
 
     bindl = [
       # bindl allows execution in lock screens, etc.
-      ", XF86AudioMicMute, exec, pwctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-      ", XF86AudioLowerVolume, exec, pwctl set-volume @DEFAULT_AUDIO_SINK@ 2%+"
-      ", XF86AudioRaiseVolume, exec, pwctl set-volume @DEFAULT_AUDIO_SINK@ 2%+"
+      ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+      ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+"
+      ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+"
       ", XF86AudioPlay, exec, playerctl play-pause"
       ", XF86AudioPause, exec, playerctl play-pause"
       ", XF86AudioNext, exec, playerctl next"

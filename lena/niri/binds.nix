@@ -73,15 +73,15 @@
 
       "XF86AudioMicMute" = {
         allow-when-locked = true;
-        action = spawn "pwctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
+        action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
       };
       "XF86AudioLowerVolume" = {
         allow-when-locked = true;
-        action = spawn "pwctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "2%-";
+        action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "2%-";
       };
       "XF86AudioRaiseVolume" = {
         allow-when-locked = true;
-        action = spawn "pwctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "2%+";
+        action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "2%+";
       };
       "XF86AudioPlay" = {
         allow-when-locked = true;
