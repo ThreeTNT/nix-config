@@ -44,7 +44,6 @@
     ../../lena/bitwarden/rbw-linux.nix
 
     ../../lena/git.nix
-    ../../lena/flatpak.nix
     ../../lena/fastfetch.nix
     ../../lena/btop.nix
 

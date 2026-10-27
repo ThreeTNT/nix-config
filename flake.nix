@@ -75,7 +75,6 @@
       imports = [
         ./hosts/celosia/flake.nix
         ./hosts/minipc-1/flake.nix
-        ./hosts/vaultwarden/flake.nix
         ./hosts/hibiscus/flake.nix
       ];
     };
