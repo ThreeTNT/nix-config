@@ -39,6 +39,9 @@
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    opencode-nix.url = "github:anomalyco/opencode";
+    opencode-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =

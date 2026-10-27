@@ -4,7 +4,12 @@
   users.users.lena = {
     isNormalUser = true;
     group = "wheel";
-    extraGroups = [ ];
+    extraGroups = [
+      "dialout"
+      "input"
+      "i2c"
+      "plugdev"
+    ];
     hashedPasswordFile = config.sops.secrets.weak-password.path;
     home = "/home/lena";
   };
@@ -29,8 +34,8 @@
   };
 
   imports = [
-    ../../lena/secrets/secrets.nix
     ../../lena/lena.nix
+    ../../lena/secrets/secrets.nix
     ../../lena/ssh/ssh.nix
     ../../lena/basic-linux.nix
 
@@ -39,11 +44,12 @@
     ../../lena/bitwarden/rbw-linux.nix
 
     ../../lena/git.nix
+    ../../lena/flatpak.nix
     ../../lena/fastfetch.nix
     ../../lena/btop.nix
 
     ../../lena/helix.nix
     ../../lena/direnv.nix
-    ../../lena/fonts.nix
+    ../../lena/kitty.nix
   ];
 }

@@ -8,6 +8,7 @@
     (
       if pkgs.stdenv.hostPlatform.isLinux then
         {
+          enable = true;
           settings = {
             PasswordAuthentication = true;
             KexAlgorithms = [

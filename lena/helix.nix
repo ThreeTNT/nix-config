@@ -1,4 +1,19 @@
 { lib, ... }:
+let
+  mk-lang =
+    {
+      name,
+      indent,
+    }:
+    {
+      name = name;
+      auto-format = true;
+      indent = {
+        tab-width = indent;
+        unit = lib.concatStrings (lib.replicate indent " ");
+      };
+    };
+in
 {
   home-manager.users.lena = {
     programs.helix = {
@@ -40,74 +55,34 @@
         }
       );
       languages.language = [
-        {
+        (mk-lang {
           name = "c";
-          language-servers = [ "clangd" ];
-          auto-format = true;
-          indent = {
-            tab-width = 4;
-            unit = "    ";
-          };
-        }
-        {
+          indent = 4;
+        })
+        (mk-lang {
           name = "cpp";
-          language-servers = [ "clangd" ];
-          auto-format = true;
-          indent = {
-            tab-width = 4;
-            unit = "    ";
-          };
-        }
-        {
+          indent = 4;
+        })
+        (mk-lang {
           name = "racket";
-          language-servers = [ "racket" ];
-          auto-format = false;
-          indent = {
-            tab-width = 2;
-            unit = "  ";
-          };
-        }
-        {
+          indent = 2;
+        })
+        (mk-lang {
           name = "python";
-          language-servers = [
-            "ty"
-            "ruff"
-          ];
-          auto-format = true;
-          indent = {
-            tab-width = 4;
-            unit = "    ";
-          };
-        }
-        {
+          indent = 4;
+        })
+        (mk-lang {
           name = "nix";
-          language-servers = [ "nixd" ];
-          auto-format = true;
-          indent = {
-            tab-width = 2;
-            unit = "  ";
-          };
-        }
-        {
+          indent = 2;
+        })
+        (mk-lang {
           name = "rust";
-          language-servers = [
-            "rust-analyzer"
-            "clippy"
-          ];
-          auto-format = true;
-          indent = {
-            tab-width = 4;
-            unit = "    ";
-          };
-        }
-        {
+          indent = 4;
+        })
+        (mk-lang {
           name = "scala";
-          auto-format = true;
-          indent = {
-            tab-width = 2;
-            unit = "  ";
-          };
-        }
+          indent = 2;
+        })
       ];
     };
 

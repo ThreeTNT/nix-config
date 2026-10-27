@@ -1,7 +1,7 @@
 {
   sops = {
     age.sshKeyPaths = [
-      /var/lib/lena_id_ed25519
+      "/var/lib/lena_id_ed25519"
     ];
 
     secrets = {
