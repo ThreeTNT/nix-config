@@ -13,6 +13,7 @@
       nixd
       nixfmt
       nixfmt-tree
+      ty
 
       (lib.mkIf host-config.gui localsend)
       (lib.mkIf host-config.gui playerctl)

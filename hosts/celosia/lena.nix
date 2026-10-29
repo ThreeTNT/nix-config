@@ -82,6 +82,7 @@
     ../../lena/gtk/gtk4.nix
     # TODO: gtk2-3?
 
+    ../../lena/opencode.nix
     ../../lena/vesktop.nix
     ../../lena/vscode.nix
     ../../lena/cursors.nix

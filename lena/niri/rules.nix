@@ -97,7 +97,7 @@ let
     }
     {
       matches = [ { app-id = "^(kitty).*"; } ];
-      opacity = 0.9;
+      opacity = 0.95;
     }
     {
       matches = [ { is-floating = false; } ];
