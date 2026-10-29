@@ -16,6 +16,9 @@
     options = "--delete-older-than 7d";
   };
 
+  networking.hostName = "hibiscus";
+  networking.localHostName = "hibiscus";
+
   time.timeZone = "America/Toronto";
 
   # system.defaults.NSGlobalDomain.AppleLanguages = [ "en-CA" ];
