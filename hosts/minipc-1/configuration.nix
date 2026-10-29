@@ -1,5 +1,9 @@
+{ config, ... }:
 {
-  programs.nix-ld.enable = true;
+  programs.nix-ld = {
+    enable = true;
+    libraries = [ config.boot.kernelPackages.nvidia_x11 ];
+  };
 
   nix.gc = {
     automatic = true;

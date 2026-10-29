@@ -10,6 +10,7 @@
       "Mod+E".action = spawn "firefox";
       "Mod+V".action = spawn "nscratch" "-i" "vesktop" "--spawn" "${pkgs.vesktop}" "-a";
       "Mod+S".action = spawn "nscratch" "-i" "Spotify" "--spawn" "spotify" "-a";
+      "Mod+D".action = spawn "nscratch" "-i" "thunderbird" "--spawn" "thunderbird" "-a";
       "Mod+C".action = spawn "code";
 
       "Mod+P".action = spawn "niri" "msg" "action" "screenshot";

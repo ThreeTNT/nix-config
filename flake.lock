@@ -266,6 +266,26 @@
         "type": "github"
       }
     },
+    "opencode-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792785451,
+        "narHash": "sha256-iqP0vJBgQp49V/AJKOO8DLcj5gRXGDBjQo8wS/Gx6Hk=",
+        "owner": "anomalyco",
+        "repo": "opencode",
+        "rev": "09e6ddf630b5f2466addf6044b79a60bd48bac03",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anomalyco",
+        "repo": "opencode",
+        "type": "github"
+      }
+    },
     "quickshell": {
       "inputs": {
         "nixpkgs": [
@@ -300,6 +320,7 @@
         "nix-darwin": "nix-darwin",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs_2",
+        "opencode-nix": "opencode-nix",
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix"
       }

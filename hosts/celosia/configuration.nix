@@ -47,6 +47,7 @@
     ./bootloader.nix
     ./sunshine.nix
     ./audio.nix
+    ./printing.nix
   ];
 
   system.stateVersion = "25.11";

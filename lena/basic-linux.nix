@@ -2,20 +2,31 @@
   pkgs,
   lib,
   host-config,
+  flake-inputs,
   ...
 }:
 {
-  home-manager.users.lena.home.packages = with pkgs; [
-    nixd
-    nixfmt
-    nixfmt-tree
+  home-manager.users.lena = {
+    home.packages = with pkgs; [
+      bash
 
-    (lib.mkIf host-config.gui playerctl)
-    (lib.mkIf host-config.gui pwvucontrol)
-    (lib.mkIf host-config.gui gamescope)
+      nixd
+      nixfmt
+      nixfmt-tree
+      ty
 
-    ddcutil
+      (lib.mkIf host-config.gui localsend)
+      (lib.mkIf host-config.gui playerctl)
+      (lib.mkIf host-config.gui pwvucontrol)
+      (lib.mkIf host-config.gui gamescope)
 
-    kiro-cli
-  ];
+      ddcutil
+      libheif
+
+      tmux
+      delta
+
+      kiro-cli
+    ];
+  };
 }

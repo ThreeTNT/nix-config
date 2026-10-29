@@ -63,10 +63,21 @@ let
       default-window-height.fixed = 900;
     }
     {
-      matches = [ { app-id = "^(Bitwarden)$"; } ];
+      matches = [ { app-id = "^(bitwarden)$"; } ];
       open-floating = true;
       default-column-width.fixed = 1280;
       default-window-height.fixed = 960;
+    }
+    {
+      matches = [
+        {
+          app-id = "^(thunderbird)$";
+          title = "^Write: ";
+        }
+      ];
+      open-floating = true;
+      default-column-width.fixed = 1794;
+      default-window-height.fixed = 1141;
     }
     {
       matches = [ { app-id = "^(org\\.kde\\.dolphin)$"; } ];
@@ -86,7 +97,7 @@ let
     }
     {
       matches = [ { app-id = "^(kitty).*"; } ];
-      opacity = 0.9;
+      opacity = 0.95;
     }
     {
       matches = [ { is-floating = false; } ];
@@ -98,6 +109,14 @@ let
         { app-id = "^gamescope$"; }
       ];
       variable-refresh-rate = true;
+    }
+    {
+      matches = [
+        { app-id = "^org\\.localsend\\.localsend_app$"; }
+      ];
+      open-floating = true;
+      default-column-width.fixed = 1200;
+      default-window-height.fixed = 800;
     }
     {
       matches = [ { } ]; # matches every window

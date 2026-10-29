@@ -6,6 +6,7 @@
       font.name = "Hack Nerd Font";
       font.size = 13.0;
       settings.window_padding_width = 10;
+      settings.background = "#101010";
     };
 
     catppuccin.kitty.enable = true;

@@ -14,6 +14,7 @@
       "video"
       "i2c"
       "plugdev"
+      "lpadmin"
     ];
     hashedPasswordFile = config.sops.secrets.weak-password.path;
     home = "/home/lena";
@@ -43,8 +44,8 @@
   };
 
   imports = [
-    ../../lena/secrets/secrets.nix
     ../../lena/lena.nix
+    ../../lena/secrets/secrets.nix
     ../../lena/ssh/ssh.nix
     ../../lena/basic-linux.nix
 
@@ -81,6 +82,7 @@
     ../../lena/gtk/gtk4.nix
     # TODO: gtk2-3?
 
+    ../../lena/opencode.nix
     ../../lena/vesktop.nix
     ../../lena/vscode.nix
     ../../lena/cursors.nix
@@ -91,9 +93,11 @@
     ../../lena/libreoffice.nix
     ../../lena/obsidian.nix
     ../../lena/firefox.nix
+    ../../lena/thunderbird.nix
     ../../lena/kitty.nix
     ../../lena/fonts.nix
     ../../lena/fusion360/fusion360-linux.nix
+    ../../lena/marktext.nix
   ];
 
 }

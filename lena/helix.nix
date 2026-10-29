@@ -1,4 +1,43 @@
-{ lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  catppuccin-cfg = config.home-manager.users.lena.catppuccin;
+  flavor = catppuccin-cfg.flavor;
+
+  # Keep this in sync with settings.background in ../kitty.nix.
+  background = "#101010";
+
+  theme-nm = "catppuccin-${flavor}";
+  theme-src = "${catppuccin-cfg.sources.helix}/${
+    if catppuccin-cfg.helix.useItalics then "default" else "no_italics"
+  }/catppuccin_${flavor}.toml";
+
+  # catppuccin.helix links the upstream theme straight out of the store, so patch
+  # a copy of it (overriding the palette's "base" colour, which is what
+  # ui.background resolves to) and force ours into its place below.
+  theme = pkgs.runCommand "${theme-nm}-helix-theme.toml" { } ''
+    sed -E 's|^base = "#[0-9a-fA-F]{6}"$|base = "${background}"|' ${theme-src} > $out
+    grep -qxF 'base = "${background}"' $out
+  '';
+
+  mk-lang =
+    {
+      name,
+      indent,
+    }:
+    {
+      name = name;
+      auto-format = true;
+      indent = {
+        tab-width = indent;
+        unit = lib.concatStrings (lib.replicate indent " ");
+      };
+    };
+in
 {
   home-manager.users.lena = {
     programs.helix = {
@@ -40,77 +79,38 @@
         }
       );
       languages.language = [
-        {
+        (mk-lang {
           name = "c";
-          language-servers = [ "clangd" ];
-          auto-format = true;
-          indent = {
-            tab-width = 4;
-            unit = "    ";
-          };
-        }
-        {
+          indent = 4;
+        })
+        (mk-lang {
           name = "cpp";
-          language-servers = [ "clangd" ];
-          auto-format = true;
-          indent = {
-            tab-width = 4;
-            unit = "    ";
-          };
-        }
-        {
+          indent = 4;
+        })
+        (mk-lang {
           name = "racket";
-          language-servers = [ "racket" ];
-          auto-format = false;
-          indent = {
-            tab-width = 2;
-            unit = "  ";
-          };
-        }
-        {
+          indent = 2;
+        })
+        (mk-lang {
           name = "python";
-          language-servers = [
-            "ty"
-            "ruff"
-          ];
-          auto-format = true;
-          indent = {
-            tab-width = 4;
-            unit = "    ";
-          };
-        }
-        {
+          indent = 4;
+        })
+        (mk-lang {
           name = "nix";
-          language-servers = [ "nixd" ];
-          auto-format = true;
-          indent = {
-            tab-width = 2;
-            unit = "  ";
-          };
-        }
-        {
+          indent = 2;
+        })
+        (mk-lang {
           name = "rust";
-          language-servers = [
-            "rust-analyzer"
-            "clippy"
-          ];
-          auto-format = true;
-          indent = {
-            tab-width = 4;
-            unit = "    ";
-          };
-        }
-        {
+          indent = 4;
+        })
+        (mk-lang {
           name = "scala";
-          auto-format = true;
-          indent = {
-            tab-width = 2;
-            unit = "  ";
-          };
-        }
+          indent = 2;
+        })
       ];
     };
 
     catppuccin.helix.enable = true;
+    xdg.configFile."helix/themes/${theme-nm}.toml".source = lib.mkForce theme;
   };
 }

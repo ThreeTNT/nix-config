@@ -1,4 +1,13 @@
 { config, pkgs, ... }:
+let
+  launch = cmd: {
+    command = [
+      "sh"
+      "-c"
+      cmd
+    ];
+  };
+in
 {
   home-manager.users.lena = {
     home.packages = with pkgs; [
@@ -34,29 +43,10 @@
               "systray"
             ];
           }
-          {
-            # niri's spawn path doesn't go through a login shell, so `sleep 3 &&`
-            # style shell chaining needs spawn-sh instead of spawn.
-            command = [
-              "sh"
-              "-c"
-              "sleep 3 && bitwarden"
-            ];
-          }
-          {
-            command = [
-              "sh"
-              "-c"
-              "sleep 3 && vesktop"
-            ];
-          }
-          {
-            command = [
-              "sh"
-              "-c"
-              "sleep 3 && spotify"
-            ];
-          }
+          (launch "sleep 3 && bitwarden")
+          (launch "sleep 3 && thunderbird")
+          (launch "sleep 3 && spotify")
+          (launch "sleep 3 && vesktop")
         ];
 
         layout = {
