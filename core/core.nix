@@ -30,6 +30,9 @@
       pciutils
       usbutils
       socat
+
+      dig
+      doggo
     ]
     ++ lib.optionals stdenv.hostPlatform.isLinux [
       ethtool
