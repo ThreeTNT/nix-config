@@ -107,6 +107,10 @@ in
           name = "scala";
           indent = 2;
         })
+        {
+          name = "markdown";
+          soft-wrap.enable = true;
+        }
       ];
     };
 
