@@ -1,5 +1,21 @@
-{ lib, pkgs, ... }:
+{ lib, pkgs, flake-inputs, ... }:
 let
+  # Hide the niri "scratch" workspace (used by nscratch) from the bar's
+  # workspace switcher. DMS/niri have no built-in way to hide a named
+  # workspace, so patch the widget's niri list at package build time.
+  # The sed no-ops (exit 0) if the line changes in a future DMS update -
+  # the patch just stops applying instead of breaking the build.
+  dmsShellNoScratchWs =
+    flake-inputs.dms.packages.${pkgs.stdenv.hostPlatform.system}.dms-shell.overrideAttrs
+      (old: {
+        postInstall = (old.postInstall or "") + ''
+          # QML files are copied from the store read-only; make writable before sed
+          chmod -R u+w $out/share/quickshell/dms
+          sed -i 's|workspaces = workspaces.slice().sort((a, b) => a.idx - b.idx);|workspaces = workspaces.slice().sort((a, b) => a.idx - b.idx).filter(ws => ws.name !== "scratch");|' \
+            $out/share/quickshell/dms/Modules/DankBar/Widgets/WorkspaceSwitcher.qml
+        '';
+      });
+
   # The bar background (Qt Quick Shapes / CurveRenderer) does not survive
   # a "Graphics device lost" event (NVIDIA EGL context loss) - quickshell
   # keeps running with a fully transparent bar until it is restarted.
@@ -23,6 +39,7 @@ in
 {
   home-manager.users.lena.programs.dank-material-shell = {
     enable = true;
+    package = dmsShellNoScratchWs;
     systemd = {
       enable = true;
       restartIfChanged = true;
