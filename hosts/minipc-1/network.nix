@@ -60,6 +60,7 @@ in
 
     publish = {
       enable = true;
+      addresses = true;
     };
   };
 }
