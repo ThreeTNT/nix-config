@@ -69,6 +69,8 @@
               nixfmt
               nixfmt-tree
             ];
+
+            SOPS_AGE_KEY_CMD = "sudo ssh-to-age -private-key -i /etc/ssh/ssh_host_ed25519_key";
           };
         };
 

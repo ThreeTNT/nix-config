@@ -1,6 +1,5 @@
 { flake-inputs, ... }:
 {
-  sops.secrets.weak-password.neededForUsers = true;
   users.users.lena = {
     home = /Users/lena;
   };
@@ -9,6 +8,7 @@
     imports = with flake-inputs; [
       catppuccin.homeModules.catppuccin
       spicetify-nix.homeManagerModules.spicetify
+      sops-nix.homeManagerModules.sops
     ];
 
     catppuccin = {

@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   programs.fish = {
     enable = true;
@@ -12,8 +11,4 @@
     shellInit = builtins.readFile ./shell_init.fish;
     interactiveShellInit = builtins.readFile ./interactive_init.fish;
   };
-
-  environment.systemPackages = with pkgs; [
-    fishPlugins.pure
-  ];
 }

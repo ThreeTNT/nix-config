@@ -34,6 +34,7 @@
 
   environment.systemPackages = with pkgs; [
     # hyprshot
+    libnotify # starship cmd_duration notifications (notify-send)
   ];
 
   imports = [

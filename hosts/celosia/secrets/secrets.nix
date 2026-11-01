@@ -10,6 +10,9 @@
       "wifi/bg1004" = {
         sopsFile = ./wifi.yaml;
       };
+      "lena-passwd" = {
+        sopsFile = ./passwd.yaml;
+      };
     };
   };
 }

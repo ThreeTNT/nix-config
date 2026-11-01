@@ -1,6 +1,6 @@
 { flake-inputs, config, ... }:
 {
-  sops.secrets.weak-password.neededForUsers = true;
+  sops.secrets."lena-passwd".neededForUsers = true;
   users.users.lena = {
     isNormalUser = true;
     group = "wheel";
@@ -10,13 +10,14 @@
       "i2c"
       "plugdev"
     ];
-    hashedPasswordFile = config.sops.secrets.weak-password.path;
+    hashedPasswordFile = config.sops.secrets."lena-passwd".path;
     home = "/home/lena";
   };
 
   home-manager.users.lena = {
     imports = with flake-inputs; [
       catppuccin.homeModules.catppuccin
+      sops-nix.homeManagerModules.sops
     ];
 
     catppuccin = {

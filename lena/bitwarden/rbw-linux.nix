@@ -5,6 +5,8 @@
 }:
 let
   cfg_dir = config.home-manager.users.lena.xdg.configHome;
+  email-path = config.home-manager.users.lena.sops.secrets.email.path;
+  bw-url-path = config.home-manager.users.lena.sops.secrets.bw-url.path;
 in
 {
   home-manager.users.lena = {
@@ -20,8 +22,8 @@ in
     text = ''
       mkdir -p ${cfg_dir}/rbw
       echo "{
-        \"email\": \"$(cat ${config.sops.secrets.email.path})\",
-        \"base_url\": \"$(cat ${config.sops.secrets.bw-url.path})\",
+        \"email\": \"$(cat ${email-path})\",
+        \"base_url\": \"$(cat ${bw-url-path})\",
         \"pinentry\": \"${pkgs.pinentry-tty}/bin/pinentry\"
       }" > ${cfg_dir}/rbw/config.json
       chmod 700 ${cfg_dir}/rbw

@@ -4,7 +4,7 @@
   ...
 }:
 {
-  sops.secrets.weak-password.neededForUsers = true;
+  sops.secrets."lena-passwd".neededForUsers = true;
   users.users.lena = {
     isNormalUser = true;
     group = "wheel";
@@ -16,7 +16,7 @@
       "plugdev"
       "lpadmin"
     ];
-    hashedPasswordFile = config.sops.secrets.weak-password.path;
+    hashedPasswordFile = config.sops.secrets."lena-passwd".path;
     home = "/home/lena";
   };
 
@@ -27,6 +27,7 @@
       niri-nix.homeModules.niri
       dms.homeModules.dank-material-shell
       dms-plugin-registry.nixosModules.default
+      sops-nix.homeManagerModules.sops
     ];
 
     catppuccin = {

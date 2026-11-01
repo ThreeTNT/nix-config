@@ -25,7 +25,7 @@ in
           height = 20;
           preserveAspectRatio = true;
           padding = {
-            top = 3;
+            top = 2;
             left = 2;
             right = 3;
           };
