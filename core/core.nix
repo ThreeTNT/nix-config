@@ -43,5 +43,6 @@
     ./fish/fish.nix
     ./tailscale.nix
     ./ssh.nix
+    ./resolved.nix
   ];
 }

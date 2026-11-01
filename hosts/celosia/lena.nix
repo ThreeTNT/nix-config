@@ -89,6 +89,7 @@
     ../../lena/helix.nix
     ../../lena/spotify.nix
     ../../lena/dolphin.nix
+    ../../lena/viewers.nix
     ../../lena/direnv.nix
     ../../lena/libreoffice.nix
     ../../lena/obsidian.nix
