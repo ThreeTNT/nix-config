@@ -1,6 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
-  logoDir = "/home/lena/Pictures/fetch-logos";
+  pictures = config.home-manager.users.lena.xdg.userDirs.pictures;
+  logoDir = "${pictures}/fetch-logos";
 
   ff = pkgs.writeShellScriptBin "ff" ''
     img=$(${pkgs.findutils}/bin/find "${logoDir}" -type f \
