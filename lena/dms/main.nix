@@ -81,11 +81,15 @@ in
     };
   };
 
-  # Keep DMS's built-in idle policy (monitor off / lock / suspend, inhibitor-aware)
-  # in sync with what we want. DMS owns settings.json, so merge only these keys
-  # instead of making the whole file read-only via programs.dank-material-shell.settings.
-  # Timeouts are in seconds, matching DMS's Power & Sleep settings tab.
-  home-manager.users.lena.home.activation.dmsIdleSettings = ''
+  # Keep DMS's built-in settings in sync with what we want. DMS owns
+  # settings.json, so merge only these keys instead of making the whole file
+  # read-only via programs.dank-material-shell.settings.
+  # - Idle policy (monitor off / lock / suspend, inhibitor-aware): timeouts are
+  #   in seconds, matching DMS's Power & Sleep settings tab.
+  # - notificationOverlayEnabled: put popups on the overlay layer-shell layer so
+  #   niri shows them over fullscreen windows (niri's focused fullscreen windows
+  #   cover the "top" layer; critical notifications already use overlay).
+  home-manager.users.lena.home.activation.dmsSettingsMerge = ''
     CFG_DIR="$HOME/.config/DankMaterialShell"
     CFG="$CFG_DIR/settings.json"
     mkdir -p "$CFG_DIR"
@@ -98,14 +102,15 @@ in
         | .lockBeforeSuspend = true
         | .batteryMonitorTimeout = 600
         | .batteryLockTimeout = 900
-        | .batterySuspendTimeout = 3600' "$CFG" > "$tmp"; then
+        | .batterySuspendTimeout = 3600
+        | .notificationOverlayEnabled = true' "$CFG" > "$tmp"; then
         mv "$tmp" "$CFG"
       else
         rm -f "$tmp"
-        echo "dmsIdleSettings: failed to update $CFG" >&2
+        echo "dmsSettingsMerge: failed to update $CFG" >&2
       fi
     else
-      echo '{"acMonitorTimeout":600,"acLockTimeout":900,"acSuspendTimeout":3600,"lockBeforeSuspend":true,"batteryMonitorTimeout":600,"batteryLockTimeout":900,"batterySuspendTimeout":3600}' > "$CFG"
+      echo '{"acMonitorTimeout":600,"acLockTimeout":900,"acSuspendTimeout":3600,"lockBeforeSuspend":true,"batteryMonitorTimeout":600,"batteryLockTimeout":900,"batterySuspendTimeout":3600,"notificationOverlayEnabled":true}' > "$CFG"
     fi
   '';
 }

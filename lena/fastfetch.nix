@@ -4,10 +4,11 @@ let
   logoDir = "${pictures}/fetch-logos";
 
   ff = pkgs.writeShellScriptBin "ff" ''
-    img=$(${pkgs.findutils}/bin/find "${logoDir}" -type f \
-      \( -iname '*.png' \) \
+    img=$(${pkgs.findutils}/bin/find "${logoDir}" \
+      -maxdepth 1 \
+      -type f \
+      -name '*.png' \
       | ${pkgs.coreutils}/bin/shuf -n1)
-
     exec ${pkgs.fastfetch}/bin/fastfetch ''${img:+--logo "$img"} "$@"
   '';
 in
@@ -20,10 +21,8 @@ in
 
       settings = {
         logo = {
-          type = "kitty-direct"; # see terminal notes below
-          source = "${logoDir}/default.png"; # fallback if you run plain `fastfetch`
-          # width = 40;
-          height = 20;
+          source = "${logoDir}/default.png";
+          height = 18;
           preserveAspectRatio = true;
           padding = {
             top = 2;
